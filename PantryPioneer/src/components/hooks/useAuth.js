@@ -1,0 +1,1 @@
+//Anpassad hook för att hantera autentisering och användardata.

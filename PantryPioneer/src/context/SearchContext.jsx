@@ -1,0 +1,1 @@
+// Provider för sökstatus och sökresultat.

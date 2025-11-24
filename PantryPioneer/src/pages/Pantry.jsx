@@ -1,0 +1,1 @@
+// Huvudvyn för "mitt skafferi"

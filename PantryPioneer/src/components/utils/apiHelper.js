@@ -1,0 +1,1 @@
+// Generella funktioner för API-anrop, svar och felhantering.

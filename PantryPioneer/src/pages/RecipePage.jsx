@@ -1,0 +1,1 @@
+// Huvudvyn för receptdetaljer och instruktioner.

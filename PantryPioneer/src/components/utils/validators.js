@@ -1,0 +1,1 @@
+// Funktioner för att validera formulärdata.

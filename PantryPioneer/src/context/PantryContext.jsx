@@ -1,0 +1,1 @@
+// Provider för skafferistatus och favoritrecept.

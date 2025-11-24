@@ -1,0 +1,1 @@
+// Funktioner för att hantera skafferi (CRUD) mot backend.
