@@ -1,0 +1,20 @@
+:root {
+    --primary-color: #6750A4;
+    --secondary-color: #f3edf7;
+    --background-color: #F5F5F5;
+    --text-color: #0e0624;
+    --button-color: #EADDFF;
+    --button-text-color: #6750A4;
+}
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+h1 {
+    color: var(--primary-color);
+}
