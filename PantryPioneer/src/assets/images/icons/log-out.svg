@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 596.53 596.5">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-linejoin: round;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #6851a2;
+        stroke-linecap: round;
+        stroke-width: 41.62px;
+      }
+
+      .cls-2 {
+        stroke-miterlimit: 133.33;
+      }
+    </style>
+  </defs>
+  <g id="SVGRepo_iconCarrier" data-name="SVGRepo iconCarrier">
+    <path class="cls-1" d="M187.27,298.25h388.45M575.72,298.25H187.27M575.72,298.25l-97.11-83.24M575.72,298.25l-97.11,83.24"/>
+    <path class="cls-2" d="M159.55,575.69c-60.35-.34-93.04-3.01-114.36-24.33-24.38-24.38-24.38-63.62-24.38-142.1v-221.97c0-78.48,0-117.72,24.38-142.1,24.38-24.38,63.62-24.38,142.1-24.38h27.75c78.48,0,117.72,0,142.1,24.38,21.32,21.32,24,54,24.33,114.35M270.53,575.26c43.1-1.3,68.81-6.11,86.6-23.9,21.32-21.32,24-54,24.33-114.35"/>
+  </g>
+</svg>

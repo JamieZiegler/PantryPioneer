@@ -10,7 +10,6 @@ function App() {
 
   return (
     <>
-      <h1>App</h1>
       <AuthProvider>
         <PantryProvider>
           <SearchProvider>
