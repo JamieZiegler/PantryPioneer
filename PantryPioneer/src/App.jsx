@@ -1,4 +1,5 @@
 import "./assets/css/index.css"
+import "./assets/css/form.css"
 import { RouterProvider } from "react-router-dom"
 import { router } from "./router.jsx"
 import { AuthProvider } from "./context/AuthContext.jsx"

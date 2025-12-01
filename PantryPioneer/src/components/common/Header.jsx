@@ -1,5 +1,4 @@
 import HeaderMenuItem from "./HeaderMenuItem";
-import logo from '../../assets/images/icons/Logotyp.svg';
 import search from '../../assets/images/icons/Search.svg';
 import login from '../../assets/images/icons/Log-in.svg';
 import logo2 from '../../assets/images/icons/Logotyp2.svg';
