@@ -1,0 +1,109 @@
+legend {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-family: caveat, cursive;
+}
+
+fieldset {
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.review-form label,
+.search-form label:not(.item-name, .diet-name, .recipe-type) {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+}
+
+.review-form input,
+.review-form textarea,
+.search-form input[type="text"]{
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1em;
+    font-family: "Ysabeau Office", sans-serif;
+    margin-bottom: 1em;
+}
+
+/* .search-form input[type="text"] {
+    width: 100%;
+    padding: 0.5em;
+    height: 20px;
+    margin-right: 0.5em;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+} */
+
+.review-form button,
+.search-form button {
+    padding: 0.3em 1em;
+    font-size: 1.5em;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border: none;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.418);
+    font-family: Caveat, cursive;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+}
+
+.review-form button:hover,
+.search-form button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.radio-select {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 1em;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.radio-select input[type="radio"] {
+    width: 15px;
+    margin-left: 1em;
+    margin-right: 0.5em;
+}
+
+.search-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1em;
+    justify-content: center;
+    max-height: 100px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--background-color);
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    
+}
+
+.no-scroll {
+    max-height: none;
+    overflow-y: visible;
+}
+
