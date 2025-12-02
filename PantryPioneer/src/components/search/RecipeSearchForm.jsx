@@ -5,8 +5,6 @@ export default function RecipeSearchForm() {
             <form id="recipe-search-form" action="">
                 <details className="collapsible">
                     <summary className="collapsible-summary">Avancerad sökning</summary>
-                    
-                    {/* collaspible content */}
                     <div className="collapsible-content">
                         <label htmlFor="text-search">Sök i skafferiet</label>
                         <input type="text" id="text-search" name="text-search" placeholder="Sök efter ingredienser, separera med kommatecken..." />

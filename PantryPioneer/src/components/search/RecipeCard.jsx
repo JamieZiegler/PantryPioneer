@@ -1,4 +1,5 @@
 import Placeholder from "../../assets/images/placeholder.png";
+import { Link } from "react-router-dom";
 
 export default function RecipeCard() {
     return (
@@ -20,7 +21,7 @@ export default function RecipeCard() {
                     </div>
 
                     <div className="cta-recipe">
-                        <a href="#">Gå till recept...</a>
+                        <Link to="/recipepage">Gå till recept...</Link>
                     </div>
 
                 </div>
