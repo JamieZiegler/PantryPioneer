@@ -9,7 +9,7 @@ export default function Button() {
             className="recipe btn"
             onClick={() => navigate('/search')}
         >
-            Till receptsökaren
+            Search Recipe
         </button>
     )
 }

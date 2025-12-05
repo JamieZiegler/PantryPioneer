@@ -7,9 +7,9 @@ export default function Footer() {
         <>
             <footer className="footer">
                 <div className="linkbox">
-                    <a href="/about">Om oss</a>
-                    <a href="/contact">Kontakt</a>
-                    <a href="/privacy">Villkor och integritetspolicy</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/privacy">Terms and Privacy Policy</a>
                 </div>
                 <p>© 2024 PantryPioneer. All rights reserved.</p>
                 <div className="linkbox socials">

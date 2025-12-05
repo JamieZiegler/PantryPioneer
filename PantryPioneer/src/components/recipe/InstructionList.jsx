@@ -2,7 +2,7 @@ export default function InstructionList() {
     return (
         <>
             <div className="instruction-list">
-                <h3>Instruktioner</h3>
+                <h3>Instructions:</h3>
                 <ol>
                     <li>
                         Första steget i instruktionen. Lorem ipsum dolor sit amet 

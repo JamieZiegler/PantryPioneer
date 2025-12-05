@@ -3,5 +3,15 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+    plugins: [react()],
+    server: {
+        proxy: {
+            '/themealdb': {
+                target: 'https://www.themealdb.com',
+                changeOrigin: true,
+                secure: true,
+                rewrite: (path) => path.replace(/^\/themealdb/, ''),
+            },
+        },
+    },
 })

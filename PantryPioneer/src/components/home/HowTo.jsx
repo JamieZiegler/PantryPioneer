@@ -3,29 +3,29 @@ import Button from '../common/Button.jsx';
 export default function HowTo() {
     return (
         <>
-            <h2>Hur funkar det?</h2>
+            <h2>How does it work?</h2>
             <div className="how-to-steps">
                 <div className="step">
                     <img src={placeholder} alt="Step 1" />
                     <span>
-                        1. Ange de ingredienser du har hemma (eller är villig att handla hem)
+                        1. Enter the ingredients you have at home (or are willing to buy)
                     </span>
                 </div>
                 <div className="step">
                     <span>
-                        2. Välj vilken eller vilka typer av recept du är ute efter
+                        2. Choose the type(s) of recipes you are looking for
                     </span>
                     <img src={placeholder} alt="Step 2" />
                 </div>
                 <div className="step">
                     <img src={placeholder} alt="Step 3" />
                     <span>
-                        3. Bestäm om recepten får innehålla ingredienser som du inte har angett
+                        3. Decide if you want to exclude certain ingredients or dietary preferences
                     </span>
                 </div>
                 <div className="step">
                     <span>
-                        4. Bläddra bland resultaten, spara favoriter, och laga något riktigt gott!
+                        4. Browse the results, save favorites, and cook something really delicious!
                     </span>
                     <img src={placeholder} alt="Step 4" />
                 </div>
