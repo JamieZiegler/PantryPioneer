@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Button() {
+    const navigate = useNavigate();
+
     return (
-        <>
-            <button className="recipe btn">Till receptsökaren</button>
-        </>
+        <button
+            type="button"
+            className="recipe btn"
+            onClick={() => navigate('/search')}
+        >
+            Search Recipe
+        </button>
     )
 }

@@ -5,11 +5,11 @@ export default function ReviewForm() {
             <form className="review-form">
                 <fieldset>
                     <legend>
-                        Vill du lämna en recension?
+                        Want to share your thoughts?
                     </legend>
-                    <label htmlFor="review-title">Recensionstitel:</label>
-                    <input type="text" id="review-title" name="review-title" placeholder="Skriv din recensionstitel här" required />
-                    <label htmlFor="review-rating">Betyg:</label>
+                    <label htmlFor="review-title">Review Title:</label>
+                    <input type="text" id="review-title" name="review-title" placeholder="Write your review title here" required />
+                    <label htmlFor="review-rating">Rating:</label>
                     <div className="radio-select">
                         <div className="star-group">
                             <input type="radio" id="star5" name="review-rating" value="5" />
@@ -32,13 +32,13 @@ export default function ReviewForm() {
                             <label className="star-label" htmlFor="star1">★</label>
                         </div>
                     </div>
-                    <label htmlFor="review-content">Din recension:</label>
-                    <textarea id="review-content" name="review-content" rows="4" placeholder="Skriv din recension här..." required></textarea>
-                    <label htmlFor="reviewer-name">Ditt namn:</label>
-                    <input type="text" id="reviewer-name" name="reviewer-name" placeholder="Skriv ditt namn här" required />
-                    <label htmlFor="reviewer-email">Din e-post:</label>
-                    <input type="email" id="reviewer-email" name="reviewer-email" placeholder="Skriv din e-post här" required />
-                    <button type="submit">Skicka recension</button>
+                    <label htmlFor="review-content">Your Review:</label>
+                    <textarea id="review-content" name="review-content" rows="4" placeholder="Write your review here..." required></textarea>
+                    <label htmlFor="reviewer-name">Your Name:</label>
+                    <input type="text" id="reviewer-name" name="reviewer-name" placeholder="Write your name here" required />
+                    <label htmlFor="reviewer-email">Your Email:</label>
+                    <input type="email" id="reviewer-email" name="reviewer-email" placeholder="Write your email here" required />
+                    <button type="submit">Submit Review</button>
                 </fieldset>
             </form>
 

@@ -1,1 +1,0 @@
-// Funktioner för att hantera anrop till Spoonacular API:t.

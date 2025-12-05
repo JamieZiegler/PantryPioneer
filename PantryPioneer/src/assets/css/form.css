@@ -11,11 +11,12 @@ fieldset {
     padding: 2em;
     display: flex;
     flex-direction: column;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 
 .review-form label,
-.search-form label:not(.item-name, .diet-name, .recipe-type) {
+.search-form label:not(.item-name, .diet-name, .recipe-type, .match-all-toggle) {
     font-size: 1.5em;
     font-weight: bold;
     color: var(--primary-color);
@@ -65,7 +66,7 @@ fieldset {
     color: var(--secondary-color);
 }
 
-.radio-select {
+.radio-select { /* stjärnorna i reviews */
     display: flex;
     flex-flow: row wrap;
     margin-bottom: 1em;
@@ -86,24 +87,72 @@ fieldset {
     gap: 1em;
 }
 
-.checkbox-group {
+
+
+.recipe-filters {
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
     gap: 1em;
-    justify-content: center;
-    max-height: 100px;
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary-color) var(--background-color);
+}
+
+.category-filter,
+.area-filter {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#category,
+#area {
+    padding: 0.5em;
+    border-radius: 20px;
     border: 1px solid #ccc;
-    padding: 1em;
+    font-size: 1em;
+    font-family: "Ysabeau Office", sans-serif;
+}
+
+#sort-select {
+    padding: 0.1em;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    font-family: "Ysabeau Office", sans-serif;
+}
+
+
+#category:hover,
+#area:hover {
+    border-color: var(--primary-color);
+}
+
+#category:focus,
+#area:focus,
+input[type="text"]:focus,
+textarea:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: var(--button-color);
+    box-shadow: 0 0 5px var(--button-color);
+}
+
+#category option,
+#area option {
+    font-family: "Ysabeau Office", sans-serif;
     border-radius: 10px;
-    margin-bottom: 1em;
-    
+
 }
 
-.no-scroll {
-    max-height: none;
-    overflow-y: visible;
+.match-all-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: -1em;
+    font-size: 1em;
+    font-family: "Ysabeau Office", sans-serif;
+    font-style: italic;
 }
 
+#match-all-input {
+    width: 15px;
+    height: 15px;
+}

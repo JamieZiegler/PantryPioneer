@@ -7,7 +7,7 @@ export default function Review() {
                 <div className="review-content">
                     <div className="review-header">
                         <div className="review-title">
-                            <h3>"Fantastiskt!"</h3>
+                            <h3>"Fantastic!"</h3>
                         </div>
                         <img 
                             src={Placeholder}
@@ -22,7 +22,7 @@ export default function Review() {
                         <div className="reviewer-name">
                             <strong>- Jane Doe</strong>
                         </div>
-                        <p>Det här är en fantastisk tjänst! Rekommenderas starkt.</p>
+                        <p>This is a fantastic service! Highly recommended.</p>
                     </div>
                 </div>
                 
