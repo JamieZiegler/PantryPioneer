@@ -93,79 +93,85 @@ export default function RecipePage() {
             <div className="recipe-header">
                 <h1>{recipe.title}</h1>
                 <div>
-                    <strong>Kök:</strong> {recipe.cuisines && recipe.cuisines.length ? recipe.cuisines.join(', ') : 'Okänt'}
+                    <strong>Cuisine:</strong> {recipe.cuisines && recipe.cuisines.length ? recipe.cuisines.join(', ') : 'Okänt'}
                 </div>
             </div>
 
-            <div className="recipe-image">
-                <img src={recipe.image || Placeholder} alt={recipe.title || 'Receptbild'} />
+            <div className="recipe-info">
+                
+                <div className="recipe-image">
+                    <img src={recipe.image || Placeholder} alt={recipe.title || 'Receptbild'} />
+                </div>
+        
+                <div className="ingredient-list">
+                    <h3>Ingredients</h3>
+                    <ul>
+                        {(recipe.ingredients || []).map((ing, idx) => (
+                            <li key={idx}>{ing}</li>
+                        ))}
+                    </ul>
+                </div>
+                    
+                <div className="unit-conversion-info">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colSpan="2"><h3>Unit conversion</h3></th>
+                            </tr>
+                            <tr>
+                                <th>Imperial</th>
+                                <th>Metric</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 teaspoon (tsp)</td>
+                                <td>5 ml</td>
+                            </tr>
+                            <tr>
+                                <td>1 tablespoon (tbsp)</td>
+                                <td>15 ml</td>
+                            </tr>
+                            <tr>
+                                <td>1 cup</td>
+                                <td>240 ml</td>
+                            </tr>
+                            <tr>
+                                <td>1 stick of butter</td>
+                                <td>113 grams (g)</td>
+                            </tr>
+                            <tr>
+                                <td>1 ounce (oz)</td>
+                                <td>28 grams (g)</td>
+                            </tr>
+                            <tr>
+                                <td>1 pound (lb)</td>
+                                <td>454 grams (g)</td>
+                            </tr>
+                            <tr>
+                                <td>1 fluid ounce (fl oz)</td>
+                                <td>30 ml</td>
+                            </tr>
+                            <tr>
+                                <td>1 pint (pt)</td>
+                                <td>473 ml</td>
+                            </tr>
+                            <tr>
+                                <td>1 quart (qt)</td>
+                                <td>946 ml</td>
+                            </tr>
+                            <tr>
+                                <td>1 gallon (gal)</td>
+                                <td>3.785 liters (L)</td>
+                            </tr>
+                    
+                        </tbody>
+                    </table>
+                </div>
+                
             </div>
 
-            <div className="ingredient-list">
-                <h3>Ingredienser</h3>
-                <ul>
-                    {(recipe.ingredients || []).map((ing, idx) => (
-                        <li key={idx}>{ing}</li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className="unit-conversion-info">
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan="2"><h3>Unit conversion</h3></th>
-                        </tr>
-                        <tr>
-                            <th>Imperial</th>
-                            <th>Metric</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1 teaspoon (tsp)</td>
-                            <td>5 ml</td>
-                        </tr>
-                        <tr>
-                            <td>1 tablespoon (tbsp)</td>
-                            <td>15 ml</td>
-                        </tr>
-                        <tr>
-                            <td>1 cup</td>
-                            <td>240 ml</td>
-                        </tr>
-                        <tr>
-                            <td>1 stick of butter</td>
-                            <td>113 grams (g)</td>
-                        </tr>
-                        <tr>
-                            <td>1 ounce (oz)</td>
-                            <td>28 grams (g)</td>
-                        </tr>
-                        <tr>
-                            <td>1 pound (lb)</td>
-                            <td>454 grams (g)</td>
-                        </tr>
-                        <tr>
-                            <td>1 fluid ounce (fl oz)</td>
-                            <td>30 ml</td>
-                        </tr>
-                        <tr>
-                            <td>1 pint (pt)</td>
-                            <td>473 ml</td>
-                        </tr>
-                        <tr>
-                            <td>1 quart (qt)</td>
-                            <td>946 ml</td>
-                        </tr>
-                        <tr>
-                            <td>1 gallon (gal)</td>
-                            <td>3.785 liters (L)</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
+            
 
             <div className="instruction-list">
                 <h3>Instructions</h3>

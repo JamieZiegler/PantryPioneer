@@ -37,32 +37,29 @@ export default function RecipeResults({ results = [], userIngredients = [] }) {
     }, [results, userIngredients, sort]);
 
     return (
-        <>
-            <div className="recipe-results">
-                <div className="results-header">
-                    <h3>Results:</h3>
-                    <div className="sort-controls">
-                        <label htmlFor="sort-select">
-                            <select id="sort-select" value={sort} onChange={(e) => setSort(e.target.value)}>
-                                <option value="match-desc">Matching ingredients (most first)</option>
-                                <option value="match-asc">Matching ingredients (least first)</option>
-                                <option value="alpha-asc">A → Z</option>
-                                <option value="alpha-desc">Z → A</option>
-                            </select>
-                        </label>
-                    </div>
+        <div className="recipe-results">
+            <div className="results-header">
+                <h3>Results</h3>
+                <div className="sort-controls">
+                    <label htmlFor="sort-select">
+                        <select id="sort-select" value={sort} onChange={(e) => setSort(e.target.value)}>
+                            <option value="match-desc">Best match first</option>
+                            <option value="match-asc">Least match first</option>
+                            <option value="alpha-asc">A &rarr; Z</option>
+                            <option value="alpha-desc">Z &rarr; A</option>
+                        </select>
+                    </label>
                 </div>
-                <div className="recipe-cards">
-                    {processed.length === 0 ? (
-                        <p>No recipes found. Try a different search term.</p>
-                    ) : (
-                        processed.map((r) => (
-                            <RecipeCard key={r.id} recipe={r} />
-                        ))
-                    )}
-                </div>
-                
             </div>
-        </>
+            <div className="recipe-cards">
+                {processed.length === 0 ? (
+                    <p>No recipes found. Try adjusting your search.</p>
+                ) : (
+                    processed.map((r) => (
+                        <RecipeCard key={r.id} recipe={r} />
+                    ))
+                )}
+            </div>
+        </div>
     );
 }

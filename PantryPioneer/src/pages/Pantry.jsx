@@ -1,9 +1,9 @@
-// Huvudvyn för "mitt skafferi"
-
 export default function Pantry() {
     return (
-        <>
-            <h1>Pantry Page</h1>
-        </>
+        <div className="page-placeholder">
+            <span className="emoji-icon" role="img" aria-label="pantry">🥫</span>
+            <h2>My Pantry</h2>
+            <p>Track the ingredients you have at home and get instant recipe suggestions. Coming soon!</p>
+        </div>
     )
 }

@@ -12,13 +12,14 @@ export const HeaderMenuItem = ({ text, link, iconSrc, iconClass }) => {
                 aria-label={text}
                 title={text}
             >
-                {iconSrc ? (
+                {iconSrc && (
                     <img
                         src={iconSrc}
-                        alt={text}
+                        alt=""
                         className={`menu-icon ${iconClass || ""}`}
                     />
-                ) : text}
+                )}
+                <span>{text}</span>
             </Link>
         </li>
     )

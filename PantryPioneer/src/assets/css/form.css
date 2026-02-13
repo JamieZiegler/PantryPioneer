@@ -1,98 +1,160 @@
-legend {
-    font-size: 2em;
-    font-weight: bold;
-    color: var(--primary-color);
-    font-family: caveat, cursive;
+﻿legend {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text);
+    font-family: var(--font-display);
+    padding: 0 0.25rem;
 }
 
 fieldset {
-    border: 2px solid var(--primary-color);
-    border-radius: 10px;
-    padding: 2em;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 
 .review-form label,
 .search-form label:not(.item-name, .diet-name, .recipe-type, .match-all-toggle) {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: var(--primary-color);
-    margin-bottom: 0.5em;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+    margin-top: 0.75rem;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    font-family: var(--font-body);
 }
 
 .review-form input,
 .review-form textarea,
-.search-form input[type="text"]{
+.search-form input[type="text"] {
     width: 100%;
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 1em;
-    font-family: "Ysabeau Office", sans-serif;
-    margin-bottom: 1em;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--surface);
+    margin-bottom: 0.25rem;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
 }
 
-/* .search-form input[type="text"] {
-    width: 100%;
-    padding: 0.5em;
-    height: 20px;
-    margin-right: 0.5em;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-} */
+.review-form input::placeholder,
+.review-form textarea::placeholder,
+.search-form input[type="text"]::placeholder {
+    color: var(--text-muted);
+}
+
+.review-form input:hover,
+.review-form textarea:hover,
+.search-form input[type="text"]:hover {
+    border-color: var(--primary-light);
+}
+
+.review-form input:focus,
+.review-form textarea:focus,
+.search-form input[type="text"]:focus,
+#category:focus,
+#area:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(103, 80, 164, 0.15);
+}
 
 .review-form button,
 .search-form button {
-    padding: 0.3em 1em;
-    font-size: 1.5em;
-    background-color: var(--button-color);
-    color: var(--button-text-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    background: var(--primary);
+    color: #FFFFFF;
     border: none;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.418);
-    font-family: Caveat, cursive;
-    border-radius: 50px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all var(--transition);
     width: fit-content;
+    margin-top: 1rem;
+    letter-spacing: 0.02em;
 }
 
 .review-form button:hover,
 .search-form button:hover {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
-.radio-select { /* stjärnorna i reviews */
+.review-form button:active,
+.search-form button:active {
+    transform: translateY(0);
+}
+
+.review-form button:disabled,
+.search-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.radio-select {
     display: flex;
     flex-flow: row wrap;
-    margin-bottom: 1em;
+    margin-bottom: 0.75rem;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
 }
 
+.star-group {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    transition: background var(--transition);
+    cursor: pointer;
+}
+
+.star-group:hover {
+    background: var(--primary-subtle);
+}
+
+.star-label {
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
 
 .radio-select input[type="radio"] {
-    width: 15px;
-    margin-left: 1em;
-    margin-right: 0.5em;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary);
+    cursor: pointer;
 }
 
 .search-form form {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 0.25rem;
+    text-align: left;
 }
-
-
 
 .recipe-filters {
     display: flex;
     flex-direction: row;
-    gap: 1em;
+    gap: 1rem;
+    margin-top: 0.5rem;
 }
 
 .category-filter,
@@ -104,55 +166,90 @@ fieldset {
 
 #category,
 #area {
-    padding: 0.5em;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    font-family: "Ysabeau Office", sans-serif;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border);
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--surface);
+    transition: border-color var(--transition), box-shadow var(--transition);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235A6275' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
 }
 
 #sort-select {
-    padding: 0.1em;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    font-family: "Ysabeau Office", sans-serif;
+    padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    color: #FFFFFF;
+    background: rgba(255,255,255,0.1);
+    transition: border-color var(--transition);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23FFFFFF' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
 }
 
+#sort-select:focus {
+    border-color: rgba(255,255,255,0.6);
+}
+
+#sort-select option {
+    color: var(--text);
+    background: var(--surface);
+}
 
 #category:hover,
 #area:hover {
-    border-color: var(--primary-color);
-}
-
-#category:focus,
-#area:focus,
-input[type="text"]:focus,
-textarea:focus,
-input[type="email"]:focus {
-    outline: none;
-    border-color: var(--button-color);
-    box-shadow: 0 0 5px var(--button-color);
+    border-color: var(--primary-light);
 }
 
 #category option,
 #area option {
-    font-family: "Ysabeau Office", sans-serif;
-    border-radius: 10px;
-
+    font-family: var(--font-body);
 }
 
 .match-all-toggle {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: -1em;
-    font-size: 1em;
-    font-family: "Ysabeau Office", sans-serif;
-    font-style: italic;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.25rem 0;
 }
 
 #match-all-input {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .recipe-filters {
+        flex-direction: column;
+    }
+
+    fieldset {
+        padding: 1.25rem;
+    }
+
+    .radio-select {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

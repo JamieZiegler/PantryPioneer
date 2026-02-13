@@ -1,9 +1,10 @@
-// Inloggningssidan.
+// Login page
 
 export default function Login() {
     return (
-        <>
-            <h1>Login Page</h1>
-        </>
+        <div className="search-page">
+            <h2>Log In</h2>
+            <p>Login functionality coming soon.</p>
+        </div>
     )
 }

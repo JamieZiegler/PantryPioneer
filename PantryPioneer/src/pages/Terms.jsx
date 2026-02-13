@@ -1,9 +1,9 @@
-// GDPR och användarvillkor
-
 export default function Terms() {
     return (
-        <>
-            <h1>Terms and Conditions Page</h1>
-        </>
+        <div className="page-placeholder">
+            <span className="emoji-icon" role="img" aria-label="terms">📜</span>
+            <h2>Terms &amp; Privacy</h2>
+            <p>Our terms of service and privacy policy will be published here before launch.</p>
+        </div>
     )
 }

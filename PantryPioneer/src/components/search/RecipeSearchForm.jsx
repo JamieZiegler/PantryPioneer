@@ -78,28 +78,22 @@ export default function RecipeSearchForm({ onResults = () => {}, setUserIngredie
             <div className="search-form">
                 <div className="form-header">
                     <p>
-                        In the recipe search form, you may search for recipes by entering specific 
-                        ingredients you have on hand or wish to use, as well as by recipe name.
-                        Additionally, you can filter results by category and cuisine/region, and exclude 
-                        recipes containing ingredients you want to avoid.
-                    </p>
-                    <p>
-                        As a logged-in user, you can also search for recipes using parts of, or your entire,
-                        personal pantry. You can also save favorite recipes for quick access later.
+                        Search by ingredients, recipe name, category, or cuisine. 
+                        Exclude ingredients you want to avoid and find the perfect match.
                     </p>
                 </div>
                 <form id="recipe-search-form" onSubmit={handleAdvancedSubmit}>
                     
-                    <label htmlFor="ingredient-name-input">Search by ingredients (separate with commas)</label>
-                    <input type="text" id="ingredient-name-input" name="ingredient-name-input" placeholder="Tomato, garlic, pasta" value={includeText} onChange={(e) => setIncludeText(e.target.value)}/>
+                    <label htmlFor="ingredient-name-input">Ingredients</label>
+                    <input type="text" id="ingredient-name-input" name="ingredient-name-input" placeholder="e.g. tomato, garlic, pasta" value={includeText} onChange={(e) => setIncludeText(e.target.value)}/>
                     <label className="match-all-toggle" htmlFor="match-all-input">
                         <input type="checkbox" id="match-all-input" checked={matchAll} onChange={(e) => setMatchAll(e.target.checked)} />
-                        <span>Show only recipes that match all ingredients</span>
+                        <span>Only show recipes matching all ingredients</span>
                     </label>
-                    <label htmlFor="recipe-name-input">Search by recipe name</label>
-                    <input type="text" id="recipe-name-input" name="recipe-name-input" placeholder="Search for recipes..." value={query} onChange={(e) => setQuery(e.target.value)}/>
-                    <label htmlFor="exclude-ingredient-input">Exclude ingredients (separate with commas)</label>
-                    <input type="text" id="exclude-ingredient-input" name="exclude-ingredient-input" placeholder="Nuts, gluten" value={excludeText} onChange={(e) => setExcludeText(e.target.value)}/>
+                    <label htmlFor="recipe-name-input">Recipe Name</label>
+                    <input type="text" id="recipe-name-input" name="recipe-name-input" placeholder="Search by name..." value={query} onChange={(e) => setQuery(e.target.value)}/>
+                    <label htmlFor="exclude-ingredient-input">Exclude Ingredients</label>
+                    <input type="text" id="exclude-ingredient-input" name="exclude-ingredient-input" placeholder="e.g. nuts, gluten" value={excludeText} onChange={(e) => setExcludeText(e.target.value)}/>
                     
                     <div className="recipe-filters">
                         <div className="category-filter">

@@ -3,20 +3,17 @@ import ReviewForm from "./ReviewForm.jsx";
 
 export default function ReviewDisplay() {
     return (
-        <>
+        <section className="reviews">
             <div className="review-display">
-                <h2>Kundrecensioner</h2>
+                <h2>What Our Users Say</h2>
                 <div className="review-carousel">
                     <Review />
                     <Review />
                     <Review />
                     <Review />
                 </div>
-                <ReviewForm />
             </div>
-        </>
+            <ReviewForm />
+        </section>
     )
-
-
-    // // https://codesandbox.io/p/sandbox/review-card-react-pd6r0?file=%2Fsrc%2FReview.js
 }
