@@ -1,7 +1,7 @@
 import HeaderMenuItem from "./HeaderMenuItem";
-import search from '../../assets/images/icons/Search.svg';
-import login from '../../assets/images/icons/Log-in.svg';
-import logo1 from '../../assets/images/icons/Logotyp.svg';
+import search from '../../assets/images/icons/search.svg';
+import login from '../../assets/images/icons/log-in.svg';
+import logo1 from '../../assets/images/icons/logotyp.svg';
 
 export default function Header() {
     return (

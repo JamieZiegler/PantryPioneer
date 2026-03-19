@@ -16,6 +16,50 @@ function buildUrl(path, params = {}) {
     return qs ? `${base}?${qs}` : base;
 }
 
+function normalizeIngredientText(value) {
+    return String(value || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+async function listIngredients() {
+    const url = buildUrl('list.php', { i: 'list' });
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`TheMealDB list ingredients failed: ${res.status}`);
+    const json = await res.json();
+    return (json.meals || []).map((m) => m.strIngredient).filter(Boolean);
+}
+
+async function getIngredientNameCache() {
+    const cache = searchRecipes._ingredientNameCache;
+    if (Array.isArray(cache) && cache.length) return cache;
+    try {
+        const names = await listIngredients();
+        searchRecipes._ingredientNameCache = names;
+        return names;
+    } catch {
+        searchRecipes._ingredientNameCache = [];
+        return [];
+    }
+}
+
+async function expandIngredientCandidates(term) {
+    const normalizedTerm = normalizeIngredientText(term);
+    if (!normalizedTerm) return [];
+
+    const allIngredients = await getIngredientNameCache();
+    if (!allIngredients.length) return [];
+
+    const matches = allIngredients.filter((name) => {
+        const normalizedName = normalizeIngredientText(name);
+        return normalizedName.includes(normalizedTerm);
+    });
+
+    return matches.slice(0, 5);
+}
+
 function parseMeal(meal) {
     if (!meal) return null;
     const ingredients = [];
@@ -87,10 +131,25 @@ async function searchRecipes(filters = {}) {
         return new Set(meals.map((m) => m.idMeal));
     }
 
+    async function idsFromIngredientLoose(ingredient) {
+        const directSet = await idsFromFilter('filter.php', 'i', ingredient);
+        if (directSet.size > 0) return directSet;
+
+        const candidates = await expandIngredientCandidates(ingredient);
+        if (!candidates.length) return directSet;
+
+        const merged = new Set();
+        for (const candidate of candidates) {
+            const candidateSet = await idsFromFilter('filter.php', 'i', candidate);
+            for (const id of candidateSet) merged.add(id);
+        }
+        return merged;
+    }
+
     if (Array.isArray(includeIngredients) && includeIngredients.length) {
         if (matchAll) {
             for (const ing of includeIngredients) {
-                const set = await idsFromFilter('filter.php', 'i', ing);
+                const set = await idsFromIngredientLoose(ing);
                 if (candidateIds === null) candidateIds = set;
                 else {
                     candidateIds = new Set(Array.from(candidateIds).filter((id) => set.has(id)));
@@ -99,7 +158,7 @@ async function searchRecipes(filters = {}) {
         } else {
             candidateIds = new Set();
             for (const ing of includeIngredients) {
-                const set = await idsFromFilter('filter.php', 'i', ing);
+                const set = await idsFromIngredientLoose(ing);
                 for (const id of set) candidateIds.add(id);
             }
         }
