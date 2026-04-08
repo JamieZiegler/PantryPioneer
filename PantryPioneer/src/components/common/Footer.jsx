@@ -1,7 +1,5 @@
 import { FaSquareInstagram, FaSquareFacebook, FaLinkedin } from "react-icons/fa6";
 
-
-
 export default function Footer() {
     return (
         <footer className="mt-auto flex w-full flex-col items-center justify-around gap-6 bg-text-main px-8 py-12 text-center text-[0.9rem] text-white/70 md:flex-row md:flex-wrap">

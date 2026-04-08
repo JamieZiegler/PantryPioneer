@@ -1,9 +1,18 @@
 export default function Terms() {
     return (
         <div className="mx-auto flex w-full max-w-150 animate-[fadeInUp_0.4s_ease-out_both] flex-col items-center gap-6 px-8 py-24 text-center">
-            <span className="text-[3.5rem] leading-none" role="img" aria-label="terms">📜</span>
+            <span
+                className="text-[3.5rem] leading-none"
+                role="img"
+                aria-label="terms"
+            >
+                📜
+            </span>
             <h2>Terms &amp; Privacy</h2>
-            <p className="max-w-105 leading-[1.7]">Our terms of service and privacy policy will be published here before launch.</p>
+            <p className="max-w-105 leading-[1.7]">
+                Our terms of service and privacy policy will be published here
+                before launch.
+            </p>
         </div>
-    )
+    );
 }

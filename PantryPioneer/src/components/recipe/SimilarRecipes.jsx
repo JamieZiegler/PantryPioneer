@@ -1,4 +1,4 @@
-import RecipeCard from "../search/RecipeCard"
+import RecipeCard from "../search/RecipeCard";
 
 export default function SimilarRecipes() {
     return (
@@ -10,9 +10,7 @@ export default function SimilarRecipes() {
                     <RecipeCard />
                     <RecipeCard />
                 </div>
-                
             </div>
-
         </>
-    )
+    );
 }

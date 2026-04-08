@@ -1,4 +1,4 @@
-import HowTo from "../components/home/HowTo"
+import HowTo from "../components/home/HowTo";
 import Button from "../components/common/Button.jsx";
 import ReviewDisplay from "../components/common/ReviewDisplay.jsx";
 import heroImage from "../assets/images/marketing/pantry-jars.jpg";
@@ -17,7 +17,8 @@ export default function Home() {
                         Pantry Pioneer
                     </h1>
                     <p className="max-w-125 text-[clamp(1rem,2vw,1.25rem)] leading-relaxed text-white/85">
-                        Discover delicious recipes with the ingredients you already have at home.
+                        Discover delicious recipes with the ingredients you
+                        already have at home.
                     </p>
                     <Button />
                 </div>
@@ -25,5 +26,5 @@ export default function Home() {
             <HowTo />
             <ReviewDisplay />
         </>
-    )
+    );
 }

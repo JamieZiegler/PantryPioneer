@@ -7,13 +7,15 @@ export default function NotFound() {
                 404
             </h1>
             <h2 className="m-0 text-[1.75rem]">Page Not Found</h2>
-            <p className="max-w-100 leading-[1.7]">The page you're looking for doesn't exist or has been moved.</p>
-            <Link 
-                to="/" 
+            <p className="max-w-100 leading-[1.7]">
+                The page you're looking for doesn't exist or has been moved.
+            </p>
+            <Link
+                to="/"
                 className="inline-flex items-center gap-2 rounded-sm bg-primary px-8 py-3 font-body text-[0.95rem] font-semibold text-white no-underline transition-all duration-200 hover:-translate-y-px hover:bg-primary-dark hover:text-white hover:shadow-md"
             >
                 Back to Home
             </Link>
         </div>
-    )
+    );
 }

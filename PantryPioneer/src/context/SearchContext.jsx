@@ -1,6 +1,4 @@
-// Provider för sökstatus och sökresultat.
-
-import { useState } from 'react';
+import { useState } from "react";
 import { SearchContext } from "./searchContextDefinition";
 
 export const SearchProvider = ({ children }) => {
@@ -12,13 +10,22 @@ export const SearchProvider = ({ children }) => {
         console.log("Simulerar sökning med ingredienser:", ingredients);
         setLoading(true);
         setTimeout(() => {
-            setResults([{ id: 1, title: "Låtsasrecept 1" }]); 
+            setResults([{ id: 1, title: "Låtsasrecept 1" }]);
             setLoading(false);
         }, 500);
     };
 
     return (
-        <SearchContext.Provider value={{ ingredients, results, setIngredients, setResults, searchRecipes, loading }}>
+        <SearchContext.Provider
+            value={{
+                ingredients,
+                results,
+                setIngredients,
+                setResults,
+                searchRecipes,
+                loading,
+            }}
+        >
             {children}
         </SearchContext.Provider>
     );

@@ -1,13 +1,11 @@
-import "./assets/css/index.css"
-import { RouterProvider } from "react-router-dom"
-import { router } from "./router.jsx"
-import { AuthProvider } from "./context/AuthContext.jsx"
-import { PantryProvider } from "./context/PantryContext.jsx"
-import { SearchProvider } from "./context/SearchContext.jsx"
+import "./assets/css/index.css";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
+import { PantryProvider } from "./context/PantryContext.jsx";
+import { SearchProvider } from "./context/SearchContext.jsx";
 
 function App() {
-
-
     return (
         <>
             <AuthProvider>
@@ -18,7 +16,7 @@ function App() {
                 </PantryProvider>
             </AuthProvider>
         </>
-    )
+    );
 }
 
-export default App
+export default App;

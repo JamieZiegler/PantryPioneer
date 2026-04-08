@@ -1,14 +1,17 @@
-import { createBrowserRouter, createRoutesFromElements, Route } from "react-router-dom"
-import Layout from './components/common/Layout.jsx';
-import Home from './pages/Home.jsx';
-import SearchPage from './pages/SearchPage.jsx';
-import Pantry from './pages/Pantry.jsx';
-import Login from './pages/Login.jsx';
-import RecipePage from './pages/RecipePage.jsx';
-import NotFound from './pages/NotFound.jsx';
-import Account from './pages/Account.jsx';
-import Favorites from './pages/Favorites.jsx';
-
+import {
+    createBrowserRouter,
+    createRoutesFromElements,
+    Route,
+} from "react-router-dom";
+import Layout from "./components/common/Layout.jsx";
+import Home from "./pages/Home.jsx";
+import SearchPage from "./pages/SearchPage.jsx";
+import Pantry from "./pages/Pantry.jsx";
+import Login from "./pages/Login.jsx";
+import RecipePage from "./pages/RecipePage.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import Account from "./pages/Account.jsx";
+import Favorites from "./pages/Favorites.jsx";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -22,6 +25,6 @@ export const router = createBrowserRouter(
             <Route path="favorites" element={<Favorites />} />
             <Route path="login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
-        </Route>
-    )
-)
+        </Route>,
+    ),
+);

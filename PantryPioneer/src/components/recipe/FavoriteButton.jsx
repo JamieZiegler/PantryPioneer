@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Heart, HeartCrack } from 'lucide-react';
-import { supabase } from '../../api/supabaseClient.js';
-import { useAuth } from '../hooks/useAuth.js';
+import { useEffect, useState } from "react";
+import { Heart, HeartCrack } from "lucide-react";
+import { supabase } from "../../api/supabaseClient.js";
+import { useAuth } from "../hooks/useAuth.js";
 
 export default function FavoriteButton({ recipeId }) {
     const { user } = useAuth();
@@ -20,10 +20,10 @@ export default function FavoriteButton({ recipeId }) {
 
         (async () => {
             const { data, error } = await supabase
-                .from('favorites')
-                .select('*')
-                .eq('user_id', user.id)
-                .eq('recipe_id', recipeId)
+                .from("favorites")
+                .select("*")
+                .eq("user_id", user.id)
+                .eq("recipe_id", recipeId)
                 .maybeSingle();
 
             if (isActive && data && !error) {
@@ -38,7 +38,7 @@ export default function FavoriteButton({ recipeId }) {
 
     const handleToggleFavorite = async () => {
         if (!user) {
-            alert('You must be logged in to save favorites!');
+            alert("You must be logged in to save favorites!");
             return;
         }
         if (!recipeId) {
@@ -49,9 +49,17 @@ export default function FavoriteButton({ recipeId }) {
         setIsSubmitting(true);
 
         try {
-            const request = wasFavorite
-                ? supabase.from('favorites').delete().match({ user_id: user.id, recipe_id: recipeId })
-                : supabase.from('favorites').insert([{ user_id: user.id, recipe_id: recipeId }]);
+            let request;
+            if (wasFavorite) {
+                request = supabase
+                    .from("favorites")
+                    .delete()
+                    .match({ user_id: user.id, recipe_id: recipeId });
+            } else {
+                request = supabase
+                    .from("favorites")
+                    .insert([{ user_id: user.id, recipe_id: recipeId }]);
+            }
 
             const { error } = await request;
             if (error) {
@@ -60,20 +68,44 @@ export default function FavoriteButton({ recipeId }) {
 
             setIsFavorite(!wasFavorite);
         } catch (error) {
-            console.error(wasFavorite ? 'Failed to remove favorite' : 'Failed to save favorite', error);
-            alert(wasFavorite ? 'Failed to remove favorite. Please try again.' : 'Failed to save favorite. Please try again.');
+            console.error(
+                wasFavorite
+                    ? "Failed to remove favorite"
+                    : "Failed to save favorite",
+                error,
+            );
+            alert(
+                wasFavorite
+                    ? "Failed to remove favorite. Please try again."
+                    : "Failed to save favorite. Please try again.",
+            );
         } finally {
             setIsSubmitting(false);
         }
     };
 
-    const buttonLabel = isSubmitting
-        ? (isFavorite ? 'Removing...' : 'Saving...')
-        : (isFavorite ? 'Saved Favorite' : 'Save Favorite');
+    let buttonLabel = "Save Favorite";
+    if (isSubmitting && isFavorite) {
+        buttonLabel = "Removing...";
+    } else if (isSubmitting) {
+        buttonLabel = "Saving...";
+    } else if (isFavorite) {
+        buttonLabel = "Saved Favorite";
+    }
 
-    const buttonTitle = isSubmitting
-        ? (isFavorite ? 'Removing...' : 'Saving...')
-        : (isFavorite && isHovering ? 'Remove Favorite' : buttonLabel);
+    let buttonTitle = buttonLabel;
+    if (isFavorite && isHovering && !isSubmitting) {
+        buttonTitle = "Remove Favorite";
+    }
+
+    let icon = <Heart size={20} />;
+    if (isSubmitting) {
+        icon = <span className="animate-pulse">...</span>;
+    } else if (isFavorite && isHovering) {
+        icon = <HeartCrack size={20} />;
+    } else if (isFavorite) {
+        icon = <Heart size={20} fill="currentColor" />;
+    }
 
     return (
         <button
@@ -83,15 +115,9 @@ export default function FavoriteButton({ recipeId }) {
             onMouseLeave={() => setIsHovering(false)}
             aria-label={buttonLabel}
             title={buttonTitle}
-            className="inline-flex min-w-43 items-center justify-center gap-2 whitespace-nowrap rounded-full border border-primary/20 bg-primary-subtle/60 px-4 py-2 text-sm font-semibold text-primary-dark transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/10 hover:text-primary-dark disabled:cursor-not-allowed disabled:opacity-70"
+            className="inline-flex min-w-43 items-center justify-center gap-2 rounded-full border border-primary/20 bg-primary-subtle/60 px-4 py-2 text-sm font-semibold whitespace-nowrap text-primary-dark transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/10 hover:text-primary-dark disabled:cursor-not-allowed disabled:opacity-70"
         >
-            {isSubmitting ? (
-                <span className="animate-pulse">...</span>
-            ) : isFavorite ? (
-                isHovering ? <HeartCrack size={20} /> : <Heart size={20} fill="currentColor" />
-            ) : (
-                <Heart size={20} />
-            )}
+            {icon}
             <span>{buttonLabel}</span>
         </button>
     );

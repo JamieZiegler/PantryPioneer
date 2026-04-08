@@ -1,0 +1,7 @@
+{
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "tailwindStylesheet": "./src/assets/css/index.css",
+    "experimentalTernaries": false,
+    "tabWidth": 4,
+    "useTabs": false
+}
