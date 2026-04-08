@@ -37,23 +37,28 @@ export default function RecipeResults({ results = [], userIngredients = [] }) {
     }, [results, userIngredients, sort]);
 
     return (
-        <div className="recipe-results">
-            <div className="results-header">
-                <h3>Results</h3>
-                <div className="sort-controls">
+        <div className="flex flex-col mt-8 w-full rounded-lg bg-surface shadow-md border border-border overflow-hidden animate-[fadeInUp_0.4s_ease-out_both]">
+            <div className="bg-linear-to-br from-primary-dark to-primary text-white p-6 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+                <h3 className="text-[1.75rem] text-white font-display m-0">Results</h3>
+                <div className="flex items-center gap-3">
                     <label htmlFor="sort-select">
-                        <select id="sort-select" value={sort} onChange={(e) => setSort(e.target.value)}>
-                            <option value="match-desc">Best match first</option>
-                            <option value="match-asc">Least match first</option>
-                            <option value="alpha-asc">A &rarr; Z</option>
-                            <option value="alpha-desc">Z &rarr; A</option>
+                        <select 
+                            id="sort-select" 
+                            value={sort} 
+                            onChange={(e) => setSort(e.target.value)}
+                            className="py-2 pl-3 pr-9 rounded-sm border-[1.5px] border-white/30 text-[0.85rem] font-body text-white bg-white/10 transition-colors outline-none cursor-pointer focus:border-white/60 appearance-none bg-no-repeat bg-position[right_0.75rem_center]"
+                        >
+                            <option value="match-desc" className="text-text-main bg-surface">Best match first ↓</option>
+                            <option value="match-asc" className="text-text-main bg-surface">Least match first ↑</option>
+                            <option value="alpha-asc" className="text-text-main bg-surface">A &rarr; Z</option>
+                            <option value="alpha-desc" className="text-text-main bg-surface">Z &rarr; A</option>
                         </select>
                     </label>
                 </div>
             </div>
-            <div className="recipe-cards">
+            <div className="flex flex-col gap-4 p-6">
                 {processed.length === 0 ? (
-                    <p>No recipes found. Try adjusting your search.</p>
+                    <p className="text-text-secondary m-0">No recipes found. Try adjusting your search.</p>
                 ) : (
                     processed.map((r) => (
                         <RecipeCard key={r.id} recipe={r} />

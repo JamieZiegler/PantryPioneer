@@ -1,5 +1,4 @@
 import "./assets/css/index.css"
-import "./assets/css/form.css"
 import { RouterProvider } from "react-router-dom"
 import { router } from "./router.jsx"
 import { AuthProvider } from "./context/AuthContext.jsx"
@@ -9,17 +8,17 @@ import { SearchProvider } from "./context/SearchContext.jsx"
 function App() {
 
 
-  return (
-    <>
-      <AuthProvider>
-        <PantryProvider>
-          <SearchProvider>
-            <RouterProvider router={router} />
-          </SearchProvider>
-        </PantryProvider>
-      </AuthProvider>
-    </>
-  )
+    return (
+        <>
+            <AuthProvider>
+                <PantryProvider>
+                    <SearchProvider>
+                        <RouterProvider router={router} />
+                    </SearchProvider>
+                </PantryProvider>
+            </AuthProvider>
+        </>
+    )
 }
 
 export default App

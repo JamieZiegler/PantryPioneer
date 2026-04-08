@@ -6,6 +6,9 @@ import Pantry from './pages/Pantry.jsx';
 import Login from './pages/Login.jsx';
 import RecipePage from './pages/RecipePage.jsx';
 import NotFound from './pages/NotFound.jsx';
+import Account from './pages/Account.jsx';
+import Favorites from './pages/Favorites.jsx';
+
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -15,6 +18,8 @@ export const router = createBrowserRouter(
             <Route path="pantry" element={<Pantry />} />
             <Route path="recipepage" element={<RecipePage />} />
             <Route path="recipe/:id" element={<RecipePage />} />
+            <Route path="account" element={<Account />} />
+            <Route path="favorites" element={<Favorites />} />
             <Route path="login" element={<Login />} />
             <Route path="*" element={<NotFound />} />
         </Route>

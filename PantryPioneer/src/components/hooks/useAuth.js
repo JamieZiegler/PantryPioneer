@@ -1,1 +1,6 @@
-//Anpassad hook för att hantera autentisering och användardata.
+import { useContext} from 'react';
+import { AuthContext } from '../../context/authContextDefinition.js';
+
+export const useAuth = () => {
+    return useContext(AuthContext);
+}

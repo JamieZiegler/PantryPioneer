@@ -6,23 +6,25 @@ export default function Login() {
     const [showLogin, setShowLogin] = useState(true);
 
     return (
-        <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
-            <div className="flex border-b mb-6">
-                <button 
-                    className={`flex-1 py-2 font-semibold ${showLogin ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-500'}`}
-                    onClick={() => setShowLogin(true)}
-                >
-                    Logga in
-                </button>
-                <button 
-                    className={`flex-1 py-2 font-semibold ${!showLogin ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-500'}`}
-                    onClick={() => setShowLogin(false)}
-                >
-                    Skapa konto
-                </button>
-            </div>
+        <section className="w-full px-4 py-10 sm:px-6 sm:py-14">
+            <div className="mx-auto w-full max-w-md rounded-xl border border-border bg-surface-raised p-6 shadow-md sm:p-8">
+                <div className="mb-6 flex border-b border-border">
+                    <button 
+                        className={`flex-1 border-b-2 py-2.5 font-body text-sm font-semibold tracking-[0.02em] transition-colors ${showLogin ? 'border-primary text-primary' : 'border-transparent text-text-muted hover:text-text-main'}`}
+                        onClick={() => setShowLogin(true)}
+                    >
+                        Log in
+                    </button>
+                    <button 
+                        className={`flex-1 border-b-2 py-2.5 font-body text-sm font-semibold tracking-[0.02em] transition-colors ${!showLogin ? 'border-primary text-primary' : 'border-transparent text-text-muted hover:text-text-main'}`}
+                        onClick={() => setShowLogin(false)}
+                    >
+                        Create Account
+                    </button>
+                </div>
 
-            {showLogin ? <LoginForm /> : <SignUpForm />}
-        </div>
+                {showLogin ? <LoginForm /> : <SignUpForm />}
+            </div>
+        </section>
     );
 }

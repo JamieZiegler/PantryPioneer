@@ -21,7 +21,7 @@ export default function LoginForm() {
         });
 
         if (error) {
-            setError("Kunde inte logga in. Kontrollera e-post och lösenord.");
+            setError("Could not log in. Please check your email and password.");
             console.error(error.message);
         } else {
             navigate("/"); 
@@ -31,30 +31,33 @@ export default function LoginForm() {
 
     return (
         <form onSubmit={handleLogin} className="flex flex-col gap-4">
-            <h2 className="text-xl font-bold">Välkommen tillbaka</h2>
-            {error && <p className="text-red-500 text-sm">{error}</p>}
+            <h2 className="text-left font-display text-3xl text-text-main">Welcome back</h2>
+            <p className="-mt-2 text-sm text-text-secondary">
+                Log in to manage your pantry and favorites.
+            </p>
+            {error && <p className="rounded-md border border-error-200 bg-error-50 px-3 py-2 text-sm text-error-700">{error}</p>}
             
             <input 
                 type="email" 
-                placeholder="E-post" 
+                placeholder="Email" 
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
                 required 
                 autoComplete="email"
-                className="p-2 border rounded"
+                className="rounded-md border border-border bg-surface px-3 py-2.5 text-text-main placeholder:text-text-muted transition-colors focus:border-primary"
             />
             <input 
                 type="password" 
-                placeholder="Lösenord" 
+                placeholder="Password" 
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)} 
                 required 
                 autoComplete="current-password"
-                className="p-2 border rounded"
+                className="rounded-md border border-border bg-surface px-3 py-2.5 text-text-main placeholder:text-text-muted transition-colors focus:border-primary"
             />
             
-            <button disabled={loading} className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700 disabled:opacity-50">
-                {loading ? "Loggar in..." : "Logga in"}
+            <button disabled={loading} className="mt-1 rounded-md bg-primary px-4 py-2.5 font-medium text-text-on-primary transition-colors hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50">
+                {loading ? "Logging in..." : "Log in"}
             </button>
         </form>
     );
