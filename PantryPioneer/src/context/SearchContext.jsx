@@ -7,10 +7,10 @@ export const SearchProvider = ({ children }) => {
     const [loading, setLoading] = useState(false);
 
     const searchRecipes = async () => {
-        console.log("Simulerar sökning med ingredienser:", ingredients);
+        console.log("Simulating search with ingredients:", ingredients);
         setLoading(true);
         setTimeout(() => {
-            setResults([{ id: 1, title: "Låtsasrecept 1" }]);
+            setResults([{ id: 1, title: "Pretend recipe 1" }]);
             setLoading(false);
         }, 500);
     };
