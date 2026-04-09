@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
                 loading,
             }}
         >
-            {loading ? <div>Laddar applikationen...</div> : children}
+            {loading ? <div>Loading application...</div> : children}
         </AuthContext.Provider>
     );
 };

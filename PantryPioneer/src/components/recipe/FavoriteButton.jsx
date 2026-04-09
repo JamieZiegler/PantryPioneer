@@ -84,18 +84,15 @@ export default function FavoriteButton({ recipeId }) {
         }
     };
 
-    let buttonLabel = "Save Favorite";
+    let buttonLabel = "Save";
     if (isSubmitting && isFavorite) {
         buttonLabel = "Removing...";
     } else if (isSubmitting) {
         buttonLabel = "Saving...";
+    } else if (isFavorite && isHovering) {
+        buttonLabel = "Remove";
     } else if (isFavorite) {
-        buttonLabel = "Saved Favorite";
-    }
-
-    let buttonTitle = buttonLabel;
-    if (isFavorite && isHovering && !isSubmitting) {
-        buttonTitle = "Remove Favorite";
+        buttonLabel = "Saved";
     }
 
     let icon = <Heart size={20} />;
@@ -114,8 +111,7 @@ export default function FavoriteButton({ recipeId }) {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
             aria-label={buttonLabel}
-            title={buttonTitle}
-            className="inline-flex min-w-43 items-center justify-center gap-2 rounded-full border border-primary/20 bg-primary-subtle/60 px-4 py-2 text-sm font-semibold whitespace-nowrap text-primary-dark transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/10 hover:text-primary-dark disabled:cursor-not-allowed disabled:opacity-70"
+            className="inline-flex min-w-30 items-center justify-center gap-2 rounded-full border border-primary/20 bg-primary-subtle/60 px-4 py-2 text-sm font-semibold whitespace-nowrap text-primary-dark transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:bg-primary/10 hover:text-primary-dark disabled:cursor-not-allowed disabled:opacity-70"
         >
             {icon}
             <span>{buttonLabel}</span>
