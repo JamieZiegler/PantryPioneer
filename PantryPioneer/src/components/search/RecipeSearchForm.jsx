@@ -94,9 +94,9 @@ export default function RecipeSearchForm({
 
     return (
         <>
-            <div className="flex animate-[fadeInUp_0.4s_ease-out_both] flex-col overflow-hidden rounded-lg border border-border bg-surface shadow-md">
+            <div className="flex w-full animate-[fadeInUp_0.4s_ease-out_both] flex-col overflow-hidden rounded-lg border border-border bg-surface shadow-md">
                 <div className="flex flex-col gap-3 bg-linear-to-br from-primary-dark to-primary p-6 text-text-on-primary">
-                    <p className="m-0 text-[0.9rem] leading-relaxed text-text-on-primary/85">
+                    <p className="m-0 text-[0.9rem] leading-relaxed text-text-on-primary">
                         Search by ingredients, recipe name, category, or
                         cuisine. Exclude ingredients you want to avoid and find
                         the perfect match.

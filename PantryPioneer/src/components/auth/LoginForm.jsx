@@ -37,11 +37,7 @@ export default function LoginForm() {
             <p className="-mt-2 text-sm text-text-secondary">
                 Log in to manage your pantry and favorites.
             </p>
-            {error && (
-                <p className="rounded-md border border-error-200 bg-error-50 px-3 py-2 text-sm text-error-700">
-                    {error}
-                </p>
-            )}
+            {error && <p className="form-error">{error}</p>}
 
             <input
                 type="email"
@@ -50,7 +46,7 @@ export default function LoginForm() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="email"
-                className="rounded-md border border-border bg-surface px-3 py-2.5 text-text-main transition-colors placeholder:text-text-muted focus:border-primary"
+                className="form-input-sm"
             />
             <input
                 type="password"
@@ -59,13 +55,10 @@ export default function LoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
-                className="rounded-md border border-border bg-surface px-3 py-2.5 text-text-main transition-colors placeholder:text-text-muted focus:border-primary"
+                className="form-input-sm"
             />
 
-            <button
-                disabled={loading}
-                className="mt-1 rounded-md bg-primary px-4 py-2.5 font-medium text-text-on-primary transition-colors hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50"
-            >
+            <button disabled={loading} className="btn-primary mt-1">
                 {loading ? "Logging in..." : "Log in"}
             </button>
         </form>

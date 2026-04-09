@@ -18,29 +18,23 @@ export default function ReviewForm() {
     );
 
     return (
-        <form className="w-full max-w-(--max-width) animate-[fadeInUp_0.4s_ease-out_both] rounded-lg border border-border bg-surface p-8 shadow-md">
+        <form className="card-animated">
             <fieldset className="flex flex-col rounded-lg border border-border p-8 max-sm:p-5">
                 <legend className="px-1 font-display text-[1.5rem] font-normal text-text-main">
                     Share Your Experience
                 </legend>
-                <label
-                    className="mt-3 mb-1.5 font-body text-[0.9rem] font-semibold tracking-[0.01em] text-text-main uppercase"
-                    htmlFor="review-title"
-                >
+                <label className="form-label" htmlFor="review-title">
                     Review Title
                 </label>
                 <input
-                    className="mb-1 w-full rounded-sm border-[1.5px] border-border bg-surface px-4 py-3 font-body text-[0.95rem] text-text-main transition-[border-color,box-shadow] duration-200 outline-none placeholder:text-text-muted hover:border-primary-light focus:border-primary focus:ring-[3px] focus:ring-primary/15"
+                    className="form-input mb-1"
                     type="text"
                     id="review-title"
                     name="review-title"
                     placeholder="Give your review a title"
                     required
                 />
-                <label
-                    className="mt-3 mb-1.5 font-body text-[0.9rem] font-semibold tracking-[0.01em] text-text-main uppercase"
-                    htmlFor="review-rating"
-                >
+                <label className="form-label" htmlFor="review-rating">
                     Rating
                 </label>
                 <div className="mb-3 flex flex-row flex-wrap items-center justify-start gap-1 max-sm:flex-col max-sm:items-start">
@@ -105,42 +99,33 @@ export default function ReviewForm() {
                         </label>
                     </div>
                 </div>
-                <label
-                    className="mt-3 mb-1.5 font-body text-[0.9rem] font-semibold tracking-[0.01em] text-text-main uppercase"
-                    htmlFor="review-content"
-                >
+                <label className="form-label" htmlFor="review-content">
                     Your Review
                 </label>
                 <textarea
-                    className="mb-1 w-full rounded-sm border-[1.5px] border-border bg-surface px-4 py-3 font-body text-[0.95rem] text-text-main transition-[border-color,box-shadow] duration-200 outline-none placeholder:text-text-muted hover:border-primary-light focus:border-primary focus:ring-[3px] focus:ring-primary/15"
+                    className="form-input mb-1"
                     id="review-content"
                     name="review-content"
                     rows="4"
                     placeholder="Tell us about your experience..."
                     required
                 ></textarea>
-                <label
-                    className="mt-3 mb-1.5 font-body text-[0.9rem] font-semibold tracking-[0.01em] text-text-main uppercase"
-                    htmlFor="reviewer-name"
-                >
+                <label className="form-label" htmlFor="reviewer-name">
                     Name
                 </label>
                 <input
-                    className="mb-1 w-full rounded-sm border-[1.5px] border-border bg-surface px-4 py-3 font-body text-[0.95rem] text-text-main transition-[border-color,box-shadow] duration-200 outline-none placeholder:text-text-muted hover:border-primary-light focus:border-primary focus:ring-[3px] focus:ring-primary/15"
+                    className="form-input mb-1"
                     type="text"
                     id="reviewer-name"
                     name="reviewer-name"
                     placeholder="Your name"
                     required
                 />
-                <label
-                    className="mt-3 mb-1.5 font-body text-[0.9rem] font-semibold tracking-[0.01em] text-text-main uppercase"
-                    htmlFor="reviewer-email"
-                >
+                <label className="form-label" htmlFor="reviewer-email">
                     Email
                 </label>
                 <input
-                    className="mb-1 w-full rounded-sm border-[1.5px] border-border bg-surface px-4 py-3 font-body text-[0.95rem] text-text-main transition-[border-color,box-shadow] duration-200 outline-none placeholder:text-text-muted hover:border-primary-light focus:border-primary focus:ring-[3px] focus:ring-primary/15"
+                    className="form-input mb-1"
                     type="email"
                     id="reviewer-email"
                     name="reviewer-email"
