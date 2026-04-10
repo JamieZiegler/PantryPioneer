@@ -134,6 +134,11 @@ export default function RecipePage() {
                         className="h-auto w-full max-w-125 min-w-75 rounded-lg object-cover shadow-lg"
                         src={recipe.image || Placeholder}
                         alt={recipe.title || "Receptbild"}
+                        width="300"
+                        height="300"
+                        loading="eager"
+                        decoding="async"
+                        fetchPriority="high"
                     />
                 </div>
 

@@ -11,6 +11,11 @@ export default function RecipeCard({ recipe = {}, showMatchInfo = true }) {
                 className="h-45 w-full shrink-0 rounded-sm object-cover sm:h-full sm:w-50"
                 src={image || Placeholder}
                 alt={title || "Recipe"}
+                width="200"
+                height="200"
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
             />
 
             <div className="flex w-full flex-1 flex-col justify-between gap-4 py-2 sm:pr-2 lg:flex-row">

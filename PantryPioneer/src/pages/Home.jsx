@@ -1,7 +1,7 @@
 import HowTo from "../components/home/HowTo";
 import Button from "../components/common/Button.jsx";
 import ReviewDisplay from "../components/common/ReviewDisplay.jsx";
-import heroImage from "../assets/images/marketing/pantry-jars.jpg";
+import heroImage from "../assets/images/marketing/pantry-jars.webp";
 
 export default function Home() {
     return (
