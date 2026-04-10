@@ -1,1 +1,0 @@
-// Funktioner för formatering av data, t.ex. datum och text.

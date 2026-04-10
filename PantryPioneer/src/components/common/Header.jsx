@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import {
     Search,
     User,
-    Heart,
+    Package,
     LogOut,
     ChevronsLeft,
     ChevronsRight,
@@ -84,27 +84,27 @@ export default function Header() {
                                 </NavLink>
 
                                 <div
-                                    className={`slide-container ${slideoutOpen ? "max-w-152 translate-x-0 opacity-100 delay-75" : "max-w-0 translate-x-2 opacity-0 delay-0"}`}
+                                    className={`slide-container ${slideoutOpen ? "max-w-120 translate-x-0 opacity-100 delay-75" : "max-w-0 translate-x-2 opacity-0 delay-0"}`}
                                 >
                                     <div className="flex h-full items-stretch">
                                         <div
-                                            className={`slide-favorites ${slideoutOpen ? "max-w-48 translate-x-0 opacity-100 delay-75" : "max-w-0 translate-x-2 opacity-0 delay-0"}`}
+                                            className={`slide-favorites ${slideoutOpen ? "max-w-44 translate-x-0 opacity-100 delay-75" : "max-w-0 translate-x-2 opacity-0 delay-0"}`}
                                         >
                                             <NavLink
-                                                to="/favorites"
+                                                to="/pantry"
                                                 className={({ isActive }) =>
                                                     `account-action${isActive ? " is-active" : ""}`
                                                 }
                                             >
-                                                <Heart className="account-icon" />
+                                                <Package className="account-icon" />
                                                 <span className="hidden-tablet-down">
-                                                    Favorites
+                                                    Pantry
                                                 </span>
                                             </NavLink>
                                         </div>
 
                                         <div
-                                            className={`slide-logout ${slideoutOpen ? "max-w-44 translate-x-0 opacity-100 delay-200" : "max-w-0 translate-x-2 opacity-0 delay-0"}`}
+                                            className={`slide-logout ${slideoutOpen ? "max-w-44 translate-x-0 opacity-100 delay-150" : "max-w-0 translate-x-2 opacity-0 delay-0"}`}
                                         >
                                             <button
                                                 onClick={handleLogout}

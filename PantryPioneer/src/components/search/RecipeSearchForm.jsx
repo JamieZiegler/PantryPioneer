@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { PantryContext } from "../../context/pantryContextDefinition";
 import {
     searchRecipes,
     listCategories,
@@ -19,6 +20,35 @@ export default function RecipeSearchForm({
     const [error, setError] = useState("");
     const [excludeText, setExcludeText] = useState("");
     const [matchAll, setMatchAll] = useState(false);
+    const { pantryItems = [] } = useContext(PantryContext);
+
+    function handleUsePantry() {
+        const pantryNames = pantryItems
+            .map((item) =>
+                typeof item === "string" ? item : (item?.name ?? ""),
+            )
+            .map((name) => name.trim())
+            .filter(Boolean);
+
+        if (!pantryNames.length) {
+            setError("No pantry items found. Add items in Pantry first.");
+            return;
+        }
+
+        setIncludeText((current) => {
+            const currentItems = current
+                .split(",")
+                .map((s) => s.trim())
+                .filter(Boolean);
+
+            const merged = Array.from(
+                new Set([...currentItems, ...pantryNames]),
+            );
+            return merged.join(", ");
+        });
+
+        setError("");
+    }
 
     async function handleAdvancedSubmit(e) {
         e.preventDefault();
@@ -121,7 +151,14 @@ export default function RecipeSearchForm({
                         value={includeText}
                         onChange={(e) => setIncludeText(e.target.value)}
                     />
-
+                    <button
+                        type="button"
+                        onClick={handleUsePantry}
+                        disabled={loading || pantryItems.length === 0}
+                        className="inline-flex w-fit items-center justify-center rounded-sm border border-primary bg-surface px-4 py-2 text-[0.9rem] font-semibold text-primary transition-all hover:-translate-y-px hover:bg-primary-subtle disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                        Use pantry items
+                    </button>
                     <label
                         className="flex cursor-pointer items-center gap-2 py-1 font-body text-[0.9rem] text-text-secondary"
                         htmlFor="match-all-input"
@@ -135,7 +172,6 @@ export default function RecipeSearchForm({
                         />
                         <span>Only show recipes matching all ingredients</span>
                     </label>
-
                     <label htmlFor="recipe-name-input" className={labelClass}>
                         Recipe Name
                     </label>
@@ -147,7 +183,6 @@ export default function RecipeSearchForm({
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                     />
-
                     <label
                         htmlFor="exclude-ingredient-input"
                         className={labelClass}
@@ -162,7 +197,6 @@ export default function RecipeSearchForm({
                         value={excludeText}
                         onChange={(e) => setExcludeText(e.target.value)}
                     />
-
                     <div className="mt-2 flex flex-col gap-4 sm:flex-row">
                         <div className="flex flex-1 flex-col">
                             <label htmlFor="category" className={labelClass}>
