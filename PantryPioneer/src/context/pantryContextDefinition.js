@@ -1,8 +1,10 @@
-import React, { createContext } from 'react';
+import React, { createContext } from "react";
 
 export const PantryContext = createContext({
-    pantryItems: [], 
-    favorites: [],
+    pantryItems: [],
     addItem: () => {},
     removeItem: () => {},
+    pantryLoading: false,
+    pantryError: "",
+    refreshPantry: () => {},
 });
