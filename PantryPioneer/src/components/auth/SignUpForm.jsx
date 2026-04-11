@@ -4,6 +4,7 @@ import { supabase } from "../../api/supabaseClient";
 export default function SignUpForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [accessCode, setAccessCode] = useState("");
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -11,6 +12,12 @@ export default function SignUpForm() {
         e.preventDefault();
         setLoading(true);
         setError(null);
+
+        if (accessCode !== import.meta.env.VITE_SIGNUP_CODE) {
+            setError("Invalid access code. Please contact your instructor.");
+            setLoading(false);
+            return;
+        }
 
         const { error } = await supabase.auth.signUp({
             email,
@@ -59,6 +66,19 @@ export default function SignUpForm() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="new-password"
+                className="form-input-sm"
+            />
+
+            <label className="sr-only" htmlFor="signup-code">
+                Access Code
+            </label>
+            <input
+                id="signup-code"
+                type="password"
+                placeholder="Enter your access code"
+                value={accessCode}
+                onChange={(e) => setAccessCode(e.target.value)}
+                required
                 className="form-input-sm"
             />
 
