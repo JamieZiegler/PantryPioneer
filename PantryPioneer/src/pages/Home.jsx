@@ -14,7 +14,9 @@ export default function Home() {
             <div className="relative h-[85vh] max-h-200 min-h-137.5 w-full overflow-hidden">
                 <div
                     className="absolute inset-0 z-0 bg-cover bg-center"
+                    fetch-priority="high"
                     style={{ backgroundImage: `url(${heroImage})` }}
+                    alt="A collection of pantry jars filled with various ingredients."
                 />
                 <div className="absolute inset-0 z-1 bg-[linear-gradient(170deg,rgba(74,56,128,0.8)_0%,rgba(103,80,164,0.6)_40%,rgba(0,0,0,0.4)_100%)]" />
                 <div className="absolute top-1/2 left-1/2 z-2 flex -translate-x-1/2 -translate-y-1/2 animate-[fadeIn_0.8s_ease-out_both] flex-col items-center gap-8 text-center">
