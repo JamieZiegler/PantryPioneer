@@ -49,6 +49,8 @@ export default function Header() {
                             <img
                                 src={logo1}
                                 alt="Logo"
+                                width="52"
+                                height="52"
                                 className="relative z-0 h-12 w-auto min-w-12 object-contain"
                             />
                         </NavLink>

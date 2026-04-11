@@ -1,7 +1,12 @@
-import HowTo from "../components/home/HowTo";
+import { lazy, Suspense } from "react";
 import Button from "../components/common/Button.jsx";
-import ReviewDisplay from "../components/common/ReviewDisplay.jsx";
-import heroImage from "../assets/images/marketing/pantry-jars.jpg";
+import LoadingSpinner from "../components/common/LoadingSpinner.jsx";
+import heroImage from "../assets/images/marketing/pantry-jars.webp";
+
+const HowTo = lazy(() => import("../components/home/HowTo.jsx"));
+const ReviewDisplay = lazy(
+    () => import("../components/common/ReviewDisplay.jsx"),
+);
 
 export default function Home() {
     return (
@@ -23,8 +28,11 @@ export default function Home() {
                     <Button />
                 </div>
             </div>
-            <HowTo />
-            <ReviewDisplay />
+
+            <Suspense fallback={<LoadingSpinner message="Loading page..." />}>
+                <HowTo />
+                <ReviewDisplay />
+            </Suspense>
         </>
     );
 }

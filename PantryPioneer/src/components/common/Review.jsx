@@ -1,4 +1,4 @@
-import Placeholder from "../../assets/images/placeholder.png";
+import Placeholder from "../../assets/images/placeholder.webp";
 import { Star } from "lucide-react";
 
 export default function Review() {
@@ -9,6 +9,8 @@ export default function Review() {
                     <img
                         src={Placeholder}
                         alt=""
+                        width="48"
+                        height="48"
                         className="h-12 w-12 rounded-full border-2 border-primary-subtle object-cover"
                     />
                     <h3 className="text-[1.15rem] text-text-main">

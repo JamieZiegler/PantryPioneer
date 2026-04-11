@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getRecipeInformation } from "../api/themealdb.js";
-import Placeholder from "../assets/images/placeholder.png";
+import Placeholder from "../assets/images/placeholder.webp";
 import FavoriteButton from "../components/recipe/FavoriteButton.jsx";
 
 export default function RecipePage() {
@@ -110,6 +110,14 @@ export default function RecipePage() {
             .filter(Boolean);
     }
 
+    const cleanImageUrl = recipe.image
+        ? recipe.image.replace(/^https?:\/\//, "")
+        : "";
+
+    const optimizedImage = recipe.image
+        ? `https://wsrv.nl/?url=${encodeURIComponent(cleanImageUrl)}&w=300&h=300&fit=cover&q=60&output=webp`
+        : Placeholder;
+
     return (
         <div className="mx-auto mb-16 flex w-full max-w-(--max-width) animate-[fadeInUp_0.4s_ease-out_both] flex-wrap gap-8 p-4 sm:p-8">
             <div className="flex w-full flex-col items-center justify-center gap-4 pt-4 text-center text-text-main">
@@ -131,9 +139,14 @@ export default function RecipePage() {
             <div className="mt-4 flex w-full flex-wrap justify-center gap-6">
                 <div className="flex min-w-75 flex-1 items-start justify-center">
                     <img
-                        className="h-auto w-full max-w-125 min-w-75 rounded-lg object-cover shadow-lg"
-                        src={recipe.image || Placeholder}
+                        className="h-auto w-full max-w-75 min-w-50 rounded-lg object-cover shadow-lg"
+                        src={optimizedImage}
                         alt={recipe.title || "Receptbild"}
+                        width="300"
+                        height="300"
+                        loading="eager"
+                        decoding="async"
+                        fetchPriority="high"
                     />
                 </div>
 

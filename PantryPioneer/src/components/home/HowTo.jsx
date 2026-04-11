@@ -1,4 +1,4 @@
-import placeholder from "../../assets/images/placeholder.png";
+import placeholder from "../../assets/images/placeholder.webp";
 import Button from "../common/Button.jsx";
 
 export default function HowTo() {
@@ -11,7 +11,9 @@ export default function HowTo() {
                 <img
                     src={placeholder}
                     alt=""
-                    className="h-20 w-20 shrink-0 rounded-md object-cover"
+                    width="100"
+                    height="100"
+                    className="h-25 w-25 shrink-0 rounded-md object-cover"
                 />
                 <span className="text-[1.05rem] leading-relaxed text-text-secondary">
                     <strong>1.</strong> Enter the ingredients you have at home
@@ -22,7 +24,9 @@ export default function HowTo() {
                 <img
                     src={placeholder}
                     alt=""
-                    className="h-20 w-20 shrink-0 rounded-md object-cover"
+                    width="100"
+                    height="100"
+                    className="h-25 w-25 shrink-0 rounded-md object-cover"
                 />
                 <span className="text-[1.05rem] leading-relaxed text-text-secondary">
                     <strong>2.</strong> Choose the type of recipes you're
@@ -33,7 +37,9 @@ export default function HowTo() {
                 <img
                     src={placeholder}
                     alt=""
-                    className="h-20 w-20 shrink-0 rounded-md object-cover"
+                    width="100"
+                    height="100"
+                    className="h-25 w-25 shrink-0 rounded-md object-cover"
                 />
                 <span className="text-[1.05rem] leading-relaxed text-text-secondary">
                     <strong>3.</strong> Filter out ingredients or set dietary
@@ -44,7 +50,9 @@ export default function HowTo() {
                 <img
                     src={placeholder}
                     alt=""
-                    className="h-20 w-20 shrink-0 rounded-md object-cover"
+                    width="100"
+                    height="100"
+                    className="h-25 w-25 shrink-0 rounded-md object-cover"
                 />
                 <span className="text-[1.05rem] leading-relaxed text-text-secondary">
                     <strong>4.</strong> Browse results, save favorites, and
