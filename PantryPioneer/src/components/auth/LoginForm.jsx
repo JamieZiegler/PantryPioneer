@@ -39,7 +39,11 @@ export default function LoginForm() {
             </p>
             {error && <p className="form-error">{error}</p>}
 
+            <label className="sr-only" htmlFor="login-email">
+                Email
+            </label>
             <input
+                id="login-email"
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -48,7 +52,11 @@ export default function LoginForm() {
                 autoComplete="email"
                 className="form-input-sm"
             />
+            <label className="sr-only" htmlFor="login-password">
+                Password
+            </label>
             <input
+                id="login-password"
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -58,7 +66,7 @@ export default function LoginForm() {
                 className="form-input-sm"
             />
 
-            <button disabled={loading} className="btn-primary mt-1">
+            <button type="submit" disabled={loading} className="btn-primary mt-1">
                 {loading ? "Logging in..." : "Log in"}
             </button>
         </form>

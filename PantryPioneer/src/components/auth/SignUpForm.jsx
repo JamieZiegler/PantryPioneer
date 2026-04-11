@@ -35,24 +35,38 @@ export default function SignUpForm() {
             </p>
             {error && <p className="form-error">{error}</p>}
 
+            <label className="sr-only" htmlFor="signup-email">
+                Email
+            </label>
             <input
+                id="signup-email"
                 type="email"
                 placeholder="Your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                autoComplete="email"
                 className="form-input-sm"
             />
+            <label className="sr-only" htmlFor="signup-password">
+                Password
+            </label>
             <input
+                id="signup-password"
                 type="password"
                 placeholder="Choose a strong password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                autoComplete="new-password"
                 className="form-input-sm"
             />
 
-            <button disabled={loading} className="btn-primary mt-1">
+            <button
+                type="submit"
+                disabled={loading}
+                className="btn-primary mt-1"
+            >
                 {loading ? "Creating account..." : "Sign up"}
             </button>
         </form>
