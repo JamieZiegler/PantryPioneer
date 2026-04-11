@@ -10,19 +10,19 @@ export default function Footer() {
             <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:gap-6">
                 <a
                     href="/about"
-                    className="text-[0.9rem] font-medium text-accent/70 transition-colors duration-200 hover:text-accent"
+                    className="text-[0.9rem] font-medium text-accent/85 transition-colors duration-200 hover:text-accent"
                 >
                     About
                 </a>
                 <a
                     href="/contact"
-                    className="text-[0.9rem] font-medium text-accent/70 transition-colors duration-200 hover:text-accent"
+                    className="text-[0.9rem] font-medium text-accent/85 transition-colors duration-200 hover:text-accent"
                 >
                     Contact
                 </a>
                 <a
                     href="/privacy"
-                    className="text-[0.9rem] font-medium text-accent/70 transition-colors duration-200 hover:text-accent"
+                    className="text-[0.9rem] font-medium text-accent/85 transition-colors duration-200 hover:text-accent"
                 >
                     Terms &amp; Privacy
                 </a>
@@ -33,13 +33,13 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
                 <a href="#" aria-label="Facebook">
-                    <FaSquareFacebook className="h-9 w-9 text-accent opacity-70 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-100" />
+                    <FaSquareFacebook className="h-9 w-9 text-accent opacity-85 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-100" />
                 </a>
                 <a href="#" aria-label="Instagram">
-                    <FaSquareInstagram className="h-9 w-9 text-accent opacity-70 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-100" />
+                    <FaSquareInstagram className="h-9 w-9 text-accent opacity-85 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-100" />
                 </a>
                 <a href="#" aria-label="LinkedIn">
-                    <FaLinkedin className="h-9 w-9 text-accent opacity-70 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-100" />
+                    <FaLinkedin className="h-9 w-9 text-accent opacity-85 transition-all duration-200 hover:-translate-y-0.5 hover:opacity-100" />
                 </a>
             </div>
         </footer>
