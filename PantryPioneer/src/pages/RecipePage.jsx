@@ -151,9 +151,9 @@ export default function RecipePage() {
                 </div>
 
                 <div className="flex min-w-70 grow flex-col rounded-lg border border-border bg-surface p-6 leading-loose shadow-sm">
-                    <h3 className="mb-2 border-b-2 border-primary-subtle pb-2 text-left font-display text-[1.5rem] text-primary-dark">
+                    <h2 className="mb-2 border-b-2 border-primary-subtle pb-2 text-left font-display text-[1.5rem] text-primary-dark">
                         Ingredients
-                    </h3>
+                    </h2>
                     <ul className="m-0 list-none p-0">
                         {(recipe.ingredients || []).map((ing, idx) => (
                             <li
@@ -171,9 +171,9 @@ export default function RecipePage() {
                         <thead>
                             <tr>
                                 <th colSpan="2" className="pb-2">
-                                    <h3 className="m-0 font-display text-[1.5rem] text-white">
+                                    <h2 className="m-0 font-display text-[1.5rem] text-white">
                                         Unit conversion
-                                    </h3>
+                                    </h2>
                                 </th>
                             </tr>
                             <tr className="border-b border-white/20">
@@ -236,9 +236,9 @@ export default function RecipePage() {
             </div>
 
             <div className="mt-2 flex w-full flex-col rounded-lg border border-border bg-surface p-6 leading-relaxed shadow-sm sm:p-8">
-                <h3 className="mb-4 border-b-2 border-primary-subtle pb-2 text-left font-display text-[1.5rem] text-primary-dark">
+                <h2 className="mb-4 border-b-2 border-primary-subtle pb-2 text-left font-display text-[1.5rem] text-primary-dark">
                     Instructions
-                </h3>
+                </h2>
                 {instructionSteps.length ? (
                     <ol className="m-0 list-decimal pl-6 marker:font-bold marker:text-primary">
                         {instructionSteps.map((s, i) => (

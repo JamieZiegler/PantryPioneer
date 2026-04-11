@@ -30,6 +30,7 @@ export default function Header() {
                     <li className="flex h-full items-stretch justify-start">
                         <NavLink
                             to="/search"
+                            aria-label="Search recipes"
                             className={({ isActive }) =>
                                 `nav-link${isActive ? " is-active" : ""}`
                             }
@@ -42,6 +43,7 @@ export default function Header() {
                         <NavLink
                             to="/"
                             end
+                            aria-label="Home"
                             className={({ isActive }) =>
                                 `logo-link${isActive ? " is-active" : ""}`
                             }
@@ -59,6 +61,7 @@ export default function Header() {
                         {!user ? (
                             <NavLink
                                 to="/login"
+                                aria-label="Log in"
                                 className={({ isActive }) =>
                                     `nav-link${isActive ? " is-active" : ""}`
                                 }
@@ -71,17 +74,15 @@ export default function Header() {
                         ) : (
                             <div className="flex h-full items-stretch justify-end">
                                 <NavLink
-                                    to="/account"
+                                    to="/pantry"
+                                    aria-label="Pantry"
                                     className={({ isActive }) =>
                                         `nav-link${isActive ? " is-active" : ""}`
                                     }
-                                    type="button"
-                                    aria-expanded="false"
-                                    aria-label="Expand account actions"
                                 >
-                                    <User className="nav-icon" />
+                                    <Package className="nav-icon" />
                                     <span className="hidden-tablet-down">
-                                        Account
+                                        Pantry
                                     </span>
                                 </NavLink>
 
@@ -93,14 +94,15 @@ export default function Header() {
                                             className={`slide-favorites ${slideoutOpen ? "max-w-44 translate-x-0 opacity-100 delay-75" : "max-w-0 translate-x-2 opacity-0 delay-0"}`}
                                         >
                                             <NavLink
-                                                to="/pantry"
+                                                to="/account"
+                                                aria-label="Account"
                                                 className={({ isActive }) =>
                                                     `account-action${isActive ? " is-active" : ""}`
                                                 }
                                             >
-                                                <Package className="account-icon" />
+                                                <User className="account-icon" />
                                                 <span className="hidden-tablet-down">
-                                                    Pantry
+                                                    Account
                                                 </span>
                                             </NavLink>
                                         </div>
@@ -112,6 +114,7 @@ export default function Header() {
                                                 onClick={handleLogout}
                                                 className="account-action"
                                                 type="button"
+                                                aria-label="Log out"
                                             >
                                                 <LogOut className="account-icon" />
                                                 <span className="hidden-tablet-down">

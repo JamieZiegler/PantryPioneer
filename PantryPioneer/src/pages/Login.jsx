@@ -10,13 +10,13 @@ export default function Login() {
             <div className="mx-auto w-full max-w-md rounded-xl border border-border bg-surface-raised p-6 shadow-md sm:p-8">
                 <div className="mb-6 flex border-b border-border">
                     <button
-                        className={`flex-1 border-b-2 py-2.5 font-body text-sm font-semibold tracking-[0.02em] transition-colors ${showLogin ? "border-primary text-primary" : "border-transparent text-text-muted hover:text-text-main"}`}
+                        className={`flex-1 border-b-2 py-2.5 font-body text-sm font-semibold tracking-[0.02em] transition-colors ${showLogin ? "border-primary text-primary-dark/85" : "text-text-primary border-transparent hover:text-primary-dark"}`}
                         onClick={() => setShowLogin(true)}
                     >
                         Log in
                     </button>
                     <button
-                        className={`flex-1 border-b-2 py-2.5 font-body text-sm font-semibold tracking-[0.02em] transition-colors ${!showLogin ? "border-primary text-primary" : "border-transparent text-text-muted hover:text-text-main"}`}
+                        className={`flex-1 border-b-2 py-2.5 font-body text-sm font-semibold tracking-[0.02em] transition-colors ${!showLogin ? "border-primary text-primary-dark/85" : "text-text-primary border-transparent hover:text-primary-dark"}`}
                         onClick={() => setShowLogin(false)}
                     >
                         Create Account

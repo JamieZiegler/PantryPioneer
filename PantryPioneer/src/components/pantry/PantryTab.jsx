@@ -67,6 +67,7 @@ export default function PantryTab() {
                     value={category}
                     onChange={(event) => setCategory(event.target.value)}
                     className="form-input"
+                    aria-label="Ingredient category"
                 >
                     {categories.map((option) => (
                         <option key={option} value={option}>

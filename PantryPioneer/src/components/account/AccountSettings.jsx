@@ -134,18 +134,24 @@ export default function AccountSettings() {
                     className="grid gap-4 sm:grid-cols-2"
                 >
                     <div className="sm:col-span-2">
-                        <label className="form-label">Current email</label>
+                        <label className="form-label" htmlFor="current-email">
+                            Current email
+                        </label>
                         <input
                             className="form-input"
+                            id="current-email"
                             value={user?.email ?? ""}
                             readOnly
                             type="email"
                         />
                     </div>
                     <div>
-                        <label className="form-label">New email</label>
+                        <label className="form-label" htmlFor="new-email">
+                            New email
+                        </label>
                         <input
                             className="form-input"
+                            id="new-email"
                             value={newEmail}
                             onChange={(e) => setNewEmail(e.target.value)}
                             type="email"
@@ -154,9 +160,15 @@ export default function AccountSettings() {
                         />
                     </div>
                     <div>
-                        <label className="form-label">Current password</label>
+                        <label
+                            className="form-label"
+                            htmlFor="email-password"
+                        >
+                            Current password
+                        </label>
                         <input
                             className="form-input"
+                            id="email-password"
                             value={emailPassword}
                             onChange={(e) => setEmailPassword(e.target.value)}
                             type="password"
@@ -184,9 +196,15 @@ export default function AccountSettings() {
                     className="grid gap-4 sm:grid-cols-2"
                 >
                     <div className="sm:col-span-2">
-                        <label className="form-label">Current password</label>
+                        <label
+                            className="form-label"
+                            htmlFor="current-password"
+                        >
+                            Current password
+                        </label>
                         <input
                             className="form-input"
+                            id="current-password"
                             value={currentPassword}
                             onChange={(e) => setCurrentPassword(e.target.value)}
                             type="password"
@@ -195,9 +213,12 @@ export default function AccountSettings() {
                         />
                     </div>
                     <div>
-                        <label className="form-label">New password</label>
+                        <label className="form-label" htmlFor="new-password">
+                            New password
+                        </label>
                         <input
                             className="form-input"
+                            id="new-password"
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
                             type="password"
@@ -206,11 +227,15 @@ export default function AccountSettings() {
                         />
                     </div>
                     <div>
-                        <label className="form-label">
+                        <label
+                            className="form-label"
+                            htmlFor="confirm-password"
+                        >
                             Confirm new password
                         </label>
                         <input
                             className="form-input"
+                            id="confirm-password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             type="password"

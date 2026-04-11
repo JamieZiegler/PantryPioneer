@@ -47,39 +47,40 @@ export default function RecipeResults({ results = [], userIngredients = [] }) {
                     Results
                 </h3>
                 <div className="flex items-center gap-3">
-                    <label htmlFor="sort-select">
-                        <select
-                            id="sort-select"
-                            value={sort}
-                            onChange={(e) => setSort(e.target.value)}
-                            className="bg-position[right_0.75rem_center] cursor-pointer appearance-none rounded-sm border-[1.5px] border-white/30 bg-white/10 bg-no-repeat py-2 pr-9 pl-3 font-body text-[0.85rem] text-white transition-colors outline-none focus:border-white/60"
-                        >
-                            <option
-                                value="match-desc"
-                                className="bg-surface text-text-main"
-                            >
-                                Best match first ↓
-                            </option>
-                            <option
-                                value="match-asc"
-                                className="bg-surface text-text-main"
-                            >
-                                Least match first ↑
-                            </option>
-                            <option
-                                value="alpha-asc"
-                                className="bg-surface text-text-main"
-                            >
-                                A &rarr; Z
-                            </option>
-                            <option
-                                value="alpha-desc"
-                                className="bg-surface text-text-main"
-                            >
-                                Z &rarr; A
-                            </option>
-                        </select>
+                    <label htmlFor="sort-select" className="sr-only">
+                        Sort results
                     </label>
+                    <select
+                        id="sort-select"
+                        value={sort}
+                        onChange={(e) => setSort(e.target.value)}
+                        className="bg-position[right_0.75rem_center] cursor-pointer appearance-none rounded-sm border-[1.5px] border-white/30 bg-white/10 bg-no-repeat py-2 pr-9 pl-3 font-body text-[0.85rem] text-white transition-colors outline-none focus:border-white/60"
+                    >
+                        <option
+                            value="match-desc"
+                            className="bg-surface text-text-main"
+                        >
+                            Best match first ↓
+                        </option>
+                        <option
+                            value="match-asc"
+                            className="bg-surface text-text-main"
+                        >
+                            Least match first ↑
+                        </option>
+                        <option
+                            value="alpha-asc"
+                            className="bg-surface text-text-main"
+                        >
+                            A &rarr; Z
+                        </option>
+                        <option
+                            value="alpha-desc"
+                            className="bg-surface text-text-main"
+                        >
+                            Z &rarr; A
+                        </option>
+                    </select>
                 </div>
             </div>
             <div className="flex flex-col gap-4 p-6">
