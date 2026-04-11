@@ -1,6 +1,25 @@
+import { useId, useState } from "react";
 import { Star } from "lucide-react";
 
 export default function ReviewForm() {
+    const ratingIdPrefix = useId();
+    const ratingOptions = [5, 4, 3, 2, 1];
+    const [submitMessage, setSubmitMessage] = useState("");
+
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+
+        if (!form.checkValidity()) {
+            event.preventDefault();
+            setSubmitMessage("Please complete all required fields.");
+            form.reportValidity();
+            return;
+        }
+
+        event.preventDefault();
+        setSubmitMessage("Thanks. Your review is ready to submit.");
+    };
+
     const renderStars = (count) => (
         <span
             className="flex items-center gap-0.5 text-accent"
@@ -18,11 +37,16 @@ export default function ReviewForm() {
     );
 
     return (
-        <form className="card-animated">
+        <form className="card-animated" onSubmit={handleSubmit}>
             <fieldset className="flex flex-col rounded-lg border border-border p-8 max-sm:p-5">
                 <legend className="px-1 font-display text-[1.5rem] font-normal text-text-main">
                     Share Your Experience
                 </legend>
+                {submitMessage ? (
+                    <p className="mb-3 text-sm text-text-main" role="status" aria-live="polite">
+                        {submitMessage}
+                    </p>
+                ) : null}
                 <label className="form-label" htmlFor="review-title">
                     Review Title
                 </label>
@@ -34,71 +58,37 @@ export default function ReviewForm() {
                     placeholder="Give your review a title"
                     required
                 />
-                <label className="form-label" htmlFor="review-rating">
-                    Rating
-                </label>
-                <div className="mb-3 flex flex-row flex-wrap items-center justify-start gap-1 max-sm:flex-col max-sm:items-start">
-                    <div className="flex cursor-pointer items-center gap-1 rounded-sm px-2 py-1 transition-colors duration-200 hover:bg-primary-subtle">
-                        <input
-                            className="h-4 w-4 cursor-pointer accent-primary"
-                            type="radio"
-                            id="star5"
-                            name="review-rating"
-                            value="5"
-                        />
-                        <label className="cursor-pointer" htmlFor="star5">
-                            {renderStars(5)}
-                        </label>
+                <fieldset className="mb-3 border-0 p-0">
+                    <legend className="form-label">Rating</legend>
+                    <div className="flex flex-row flex-wrap items-center justify-start gap-1 max-sm:flex-col max-sm:items-start">
+                        {ratingOptions.map((rating) => {
+                            const ratingId = `${ratingIdPrefix}-star-${rating}`;
+
+                            return (
+                                <label
+                                    key={rating}
+                                    className="flex cursor-pointer items-center gap-1 rounded-sm px-2 py-1 transition-colors duration-200 focus-within:outline focus-within:outline-primary hover:bg-primary-subtle"
+                                    htmlFor={ratingId}
+                                >
+                                    <input
+                                        className="h-4 w-4 cursor-pointer accent-primary"
+                                        type="radio"
+                                        id={ratingId}
+                                        name="review-rating"
+                                        value={rating}
+                                        required={rating === 5}
+                                    />
+                                    <span className="sr-only">
+                                        {rating} star{rating === 1 ? "" : "s"}
+                                    </span>
+                                    <span aria-hidden="true">
+                                        {renderStars(rating)}
+                                    </span>
+                                </label>
+                            );
+                        })}
                     </div>
-                    <div className="flex cursor-pointer items-center gap-1 rounded-sm px-2 py-1 transition-colors duration-200 hover:bg-primary-subtle">
-                        <input
-                            className="h-4 w-4 cursor-pointer accent-primary"
-                            type="radio"
-                            id="star4"
-                            name="review-rating"
-                            value="4"
-                        />
-                        <label className="cursor-pointer" htmlFor="star4">
-                            {renderStars(4)}
-                        </label>
-                    </div>
-                    <div className="flex cursor-pointer items-center gap-1 rounded-sm px-2 py-1 transition-colors duration-200 hover:bg-primary-subtle">
-                        <input
-                            className="h-4 w-4 cursor-pointer accent-primary"
-                            type="radio"
-                            id="star3"
-                            name="review-rating"
-                            value="3"
-                        />
-                        <label className="cursor-pointer" htmlFor="star3">
-                            {renderStars(3)}
-                        </label>
-                    </div>
-                    <div className="flex cursor-pointer items-center gap-1 rounded-sm px-2 py-1 transition-colors duration-200 hover:bg-primary-subtle">
-                        <input
-                            className="h-4 w-4 cursor-pointer accent-primary"
-                            type="radio"
-                            id="star2"
-                            name="review-rating"
-                            value="2"
-                        />
-                        <label className="cursor-pointer" htmlFor="star2">
-                            {renderStars(2)}
-                        </label>
-                    </div>
-                    <div className="flex cursor-pointer items-center gap-1 rounded-sm px-2 py-1 transition-colors duration-200 hover:bg-primary-subtle">
-                        <input
-                            className="h-4 w-4 cursor-pointer accent-primary"
-                            type="radio"
-                            id="star1"
-                            name="review-rating"
-                            value="1"
-                        />
-                        <label className="cursor-pointer" htmlFor="star1">
-                            {renderStars(1)}
-                        </label>
-                    </div>
-                </div>
+                </fieldset>
                 <label className="form-label" htmlFor="review-content">
                     Your Review
                 </label>
@@ -119,6 +109,7 @@ export default function ReviewForm() {
                     id="reviewer-name"
                     name="reviewer-name"
                     placeholder="Your name"
+                    autoComplete="name"
                     required
                 />
                 <label className="form-label" htmlFor="reviewer-email">
@@ -130,6 +121,7 @@ export default function ReviewForm() {
                     id="reviewer-email"
                     name="reviewer-email"
                     placeholder="your@email.com"
+                    autoComplete="email"
                     required
                 />
                 <button

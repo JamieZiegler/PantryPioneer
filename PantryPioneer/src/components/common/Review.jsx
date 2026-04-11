@@ -17,15 +17,13 @@ export default function Review() {
                         &ldquo;Fantastic!&rdquo;
                     </h3>
                 </div>
-                <div
-                    className="flex items-center gap-0.5 text-accent"
-                    aria-label="4 out of 5 stars"
-                >
-                    <Star size={18} fill="currentColor" strokeWidth={1.8} />
-                    <Star size={18} fill="currentColor" strokeWidth={1.8} />
-                    <Star size={18} fill="currentColor" strokeWidth={1.8} />
-                    <Star size={18} fill="currentColor" strokeWidth={1.8} />
-                    <Star size={18} strokeWidth={1.8} className="opacity-75" />
+                <div className="flex items-center gap-0.5 text-accent">
+                    <span className="sr-only">4 out of 5 stars</span>
+                    <Star aria-hidden="true" size={18} fill="currentColor" strokeWidth={1.8} />
+                    <Star aria-hidden="true" size={18} fill="currentColor" strokeWidth={1.8} />
+                    <Star aria-hidden="true" size={18} fill="currentColor" strokeWidth={1.8} />
+                    <Star aria-hidden="true" size={18} fill="currentColor" strokeWidth={1.8} />
+                    <Star aria-hidden="true" size={18} strokeWidth={1.8} className="opacity-75" />
                 </div>
                 <div className="grow text-[0.95rem] leading-relaxed text-text-secondary italic">
                     <p className="text-[0.95rem] leading-relaxed text-text-secondary">
