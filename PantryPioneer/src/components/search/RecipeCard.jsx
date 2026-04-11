@@ -1,15 +1,23 @@
-import Placeholder from "../../assets/images/placeholder.png";
+import Placeholder from "../../assets/images/placeholder.webp";
 import { Link } from "react-router-dom";
 import FavoriteButton from "../recipe/FavoriteButton.jsx";
 
 export default function RecipeCard({ recipe = {}, showMatchInfo = true }) {
-    const { id, title, image, ingredients = [], matchCount = 0 } = recipe;
+    const { id, title, ingredients = [], matchCount = 0 } = recipe;
+
+    const cleanImageUrl = recipe.image
+        ? recipe.image.replace(/^https?:\/\//, "")
+        : "";
+
+    const optimizedImage = recipe.image
+        ? `https://wsrv.nl/?url=${encodeURIComponent(cleanImageUrl)}&w=200&h=200&fit=cover&q=45&output=webp`
+        : Placeholder;
 
     return (
         <div className="group flex min-h-45 w-full cursor-pointer flex-col gap-5 rounded-md border border-border bg-surface p-3 transition-all duration-200 focus-within:-translate-y-0.5 focus-within:border-primary-light focus-within:shadow-md hover:-translate-y-0.5 hover:border-primary-light hover:shadow-md sm:flex-row">
             <img
                 className="h-45 w-full shrink-0 rounded-sm object-cover sm:h-full sm:w-50"
-                src={image || Placeholder}
+                src={optimizedImage}
                 alt={title || "Recipe"}
                 width="200"
                 height="200"

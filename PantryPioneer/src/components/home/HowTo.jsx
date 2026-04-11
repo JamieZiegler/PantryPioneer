@@ -1,4 +1,4 @@
-import placeholder from "../../assets/images/placeholder.png";
+import placeholder from "../../assets/images/placeholder.webp";
 import Button from "../common/Button.jsx";
 
 export default function HowTo() {

@@ -1,4 +1,4 @@
-import Placeholder from "../../assets/images/placeholder.png";
+import Placeholder from "../../assets/images/placeholder.webp";
 import { Star } from "lucide-react";
 
 export default function Review() {
