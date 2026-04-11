@@ -41,7 +41,16 @@ export default function SignUpForm() {
                 Save favorites and personalize recipe suggestions.
             </p>
             {error && <p className="form-error">{error}</p>}
-
+            <div className="rounded-md border border-error-200 bg-error-50 p-4 pt-2">
+                <p className="border-error-300 text-md mb-3 border-b-3 pb-0.5 text-center font-semibold text-error-700">
+                    Please note!
+                </p>
+                <p className="text-error-800 text-sm">
+                    As this is a school project, there is no ordinary
+                    verification process. Anyone with the access code can create
+                    an account, so please keep it confidential.
+                </p>
+            </div>
             <label className="sr-only" htmlFor="signup-email">
                 Email
             </label>

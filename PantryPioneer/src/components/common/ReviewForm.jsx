@@ -43,10 +43,23 @@ export default function ReviewForm() {
                     Share Your Experience
                 </legend>
                 {submitMessage ? (
-                    <p className="mb-3 text-sm text-text-main" role="status" aria-live="polite">
+                    <p
+                        className="mb-3 text-sm text-text-main"
+                        role="status"
+                        aria-live="polite"
+                    >
                         {submitMessage}
                     </p>
                 ) : null}
+                <div className="rounded-md border border-error-200 bg-error-50 p-4 pt-2">
+                    <p className="border-error-300 text-md mb-3 border-b-2 pb-0.5 text-center font-semibold text-error-700">
+                        Please note!
+                    </p>
+                    <p className="text-error-800 text-sm">
+                        This form is for demonstration purposes only and does
+                        not actually submit reviews.
+                    </p>
+                </div>
                 <label className="form-label" htmlFor="review-title">
                     Review Title
                 </label>
