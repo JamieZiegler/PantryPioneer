@@ -45,10 +45,14 @@ export default function SignUpForm() {
                 <p className="border-error-300 text-md mb-3 border-b-3 pb-0.5 text-center font-semibold text-error-700">
                     Please note!
                 </p>
+                <p className="text-error-800 mb-2 text-sm">
+                    You can only create an account if you have the correct
+                    <b> access code</b>, which will be provided to you.
+                </p>
                 <p className="text-error-800 text-sm">
-                    As this is a school project, there is no ordinary
-                    verification process. Anyone with the access code can create
-                    an account, so please keep it confidential.
+                    You may use a false email address and a simple password if
+                    you like, as the authentication is only for demonstration
+                    purposes.
                 </p>
             </div>
             <label className="sr-only" htmlFor="signup-email">
