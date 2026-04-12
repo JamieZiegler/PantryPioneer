@@ -59,7 +59,7 @@ Du kan även skippa Supabase-setupen, men då får du inte tillgång till ovann�
 2. Skapa ett nytt projekt.
 3. Välj ett lösenord för databasen och spara det på ett säkert ställe.
 
-![Supabase New Project](src/assets/images/guide/supabase-new.png)
+![Supabase New Project](PantryPioneer/src/assets/images/guide/supabase-new.png)
 
 #### 2. Hämta rätt nycklar
 
@@ -70,7 +70,7 @@ När projektet är skapat behöver du två värden från Supabase:
 
 Du hittar dem i Supabase under Project Settings > API.
 
-![Supabase Settings API](src/assets/images/guide/supabase-settings-api.png)
+![Supabase Settings API](PantryPioneer/src/assets/images/guide/supabase-settings-api.png)
 
 De här ska in i din `.env`-fil i projektets rot:
 
@@ -93,14 +93,14 @@ Om du ändrar något i din env-fil behöver du starta om dev-servern så att Vit
 
 Det gör att du kan testa snabbare i demo-läge utan att behöva bekräfta via mail.
 
-![Supabase Settings Auth](src/assets/images/guide/supabase-auth.png)
+![Supabase Settings Auth](PantryPioneer/src/assets/images/guide/supabase-auth.png)
 
 #### 4. Skapa tabellerna som appen använder
 
 Allt detta kan skapas direkt via deras table editor, men enklast för att få likadant är att du bara kopierar detta in i SQL-editorn:
 (Koden finns att kopiera efter bilden)
 
-![Supabase SQL Editor](src/assets/images/guide/supabase-sql-editor.png)
+![Supabase SQL Editor](PantryPioneer/src/assets/images/guide/supabase-sql-editor.png)
 
 ```sql
 create table if not exists public.pantry_items (
@@ -158,7 +158,7 @@ Verifiera att dessa tabeller finns via Table Editorn:
 - `favorites`
 - `account_deletion_requests`
 
-![Supabase Table Editor](src/assets/images/guide/supabase-table-editor.png)
+![Supabase Table Editor](PantryPioneer/src/assets/images/guide/supabase-table-editor.png)
 
 Efter att tabellerna finns ska du slå på RLS för alla tre tabeller, du kan göra det i dashboarden eller med SQL:
 
@@ -168,7 +168,7 @@ alter table public.favorites enable row level security;
 alter table public.account_deletion_requests enable row level security;
 ```
 
-![Supabase RLS Disabled](src/assets/images/guide/supabase-rls-disabled.png)
+![Supabase RLS Disabled](PantryPioneer/src/assets/images/guide/supabase-rls-disabled.png)
 
 #### 6. Lägg till policies
 
@@ -220,7 +220,7 @@ with check (auth.uid() = user_id);
 
 Policyerna kan du sen se under policy fliken:
 
-![Supabase Policies](src/assets/images/guide/supabase-policies.png)
+![Supabase Policies](PantryPioneer/src/assets/images/guide/supabase-policies.png)
 
 #### 7. Fyll i miljövariablerna och testa
 
@@ -231,16 +231,16 @@ Policyerna kan du sen se under policy fliken:
 5. Spara dem i `.env` i projektets rot.
 6. Var uppmärksam på variablernas namn så att de stämmer överens med de som använts i koden.
 
-![Env example](src/assets/images/guide/env-example.png)
+![Env example](PantryPioneer/src/assets/images/guide/env-example.png)
 
 7. Kör `npm run dev`.
 8. Testa att registrera ett konto, logga in, lägga till pantry-items och spara favoriter.
 
-![Login successful](src/assets/images/guide/login-successful.png)
+![Login successful](PantryPioneer/src/assets/images/guide/login-successful.png)
 
-![Favorites](src/assets/images/guide/favorites.png)
+![Favorites](PantryPioneer/src/assets/images/guide/favorites.png)
 
-![Pantry](src/assets/images/guide/pantry.png)
+![Pantry](PantryPioneer/src/assets/images/guide/pantry.png)
 Om allt fungerar ska appen kunna läsa och skriva till Supabase utan fel.
 
 ---
