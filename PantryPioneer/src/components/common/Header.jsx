@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import {
     Search,
     User,
     Package,
+    Heart,
     LogOut,
     ChevronsLeft,
     ChevronsRight,
@@ -15,7 +16,15 @@ import logo1 from "../../assets/images/icons/logotyp.svg";
 export default function Header() {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
     const [slideoutOpen, setSlideoutOpen] = useState(false);
+
+    const activeTab = new URLSearchParams(location.search).get("tab");
+    const isFavoritesActive =
+        location.pathname === "/favorites" ||
+        (location.pathname === "/pantry" && activeTab === "favorites");
+    const isPantryActive =
+        location.pathname === "/pantry" && activeTab !== "favorites";
 
     const handleLogout = async () => {
         await logout();
@@ -76,13 +85,22 @@ export default function Header() {
                                 <NavLink
                                     to="/pantry"
                                     aria-label="Pantry"
-                                    className={({ isActive }) =>
-                                        `nav-link${isActive ? " is-active" : ""}`
-                                    }
+                                    className={`nav-link${isPantryActive ? " is-active" : ""}`}
                                 >
                                     <Package className="nav-icon" />
                                     <span className="hidden-tablet-down">
                                         Pantry
+                                    </span>
+                                </NavLink>
+
+                                <NavLink
+                                    to="/favorites"
+                                    aria-label="Favorites"
+                                    className={`nav-link${isFavoritesActive ? " is-active" : ""}`}
+                                >
+                                    <Heart className="nav-icon" />
+                                    <span className="hidden-tablet-down">
+                                        Favorites
                                     </span>
                                 </NavLink>
 
