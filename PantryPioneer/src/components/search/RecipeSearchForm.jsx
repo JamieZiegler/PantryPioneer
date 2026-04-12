@@ -143,6 +143,11 @@ export default function RecipeSearchForm({
                     >
                         Ingredients
                     </label>
+                    <p className="mb-4 text-sm text-text-secondary">
+                        Add as many ingredients as you like, separated by
+                        commas. Use the button to quickly add all saved items
+                        from your pantry.
+                    </p>
                     <input
                         type="text"
                         id="ingredient-name-input"
