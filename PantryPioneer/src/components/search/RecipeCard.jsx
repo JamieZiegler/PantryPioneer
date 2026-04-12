@@ -1,9 +1,12 @@
 import Placeholder from "../../assets/images/placeholder.webp";
-import { Link } from "react-router-dom";
+import { ChevronRight } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 import FavoriteButton from "../recipe/FavoriteButton.jsx";
 
 export default function RecipeCard({ recipe = {}, showMatchInfo = true }) {
     const { id, title, ingredients = [], matchCount = 0 } = recipe;
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const cleanImageUrl = recipe.image
         ? recipe.image.replace(/^https?:\/\//, "")
@@ -13,8 +16,48 @@ export default function RecipeCard({ recipe = {}, showMatchInfo = true }) {
         ? `https://wsrv.nl/?url=${encodeURIComponent(cleanImageUrl)}&w=200&h=200&fit=cover&q=45&output=webp`
         : Placeholder;
 
+    const navigateToRecipe = () => {
+        if (!id) {
+            return;
+        }
+        navigate(`/recipe/${id}`, {
+            state: {
+                from: `${location.pathname}${location.search}${location.hash}`,
+            },
+        });
+    };
+
+    const handleCardClick = (event) => {
+        if (!id) {
+            return;
+        }
+        if (event.target.closest("[data-no-card-nav]")) {
+            return;
+        }
+        navigateToRecipe();
+    };
+
+    const handleCardKeyDown = (event) => {
+        if (!id || event.target.closest("[data-no-card-nav]")) {
+            return;
+        }
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            navigateToRecipe();
+        }
+    };
+
     return (
-        <div className="group flex min-h-45 w-full cursor-pointer flex-col gap-5 rounded-md border border-border bg-surface p-3 transition-all duration-200 focus-within:-translate-y-0.5 focus-within:border-primary-light focus-within:shadow-md hover:-translate-y-0.5 hover:border-primary-light hover:shadow-md sm:flex-row">
+        <div
+            className={`group flex min-h-45 w-full flex-col gap-5 rounded-md border border-border bg-surface p-3 transition-all duration-200 focus-within:-translate-y-0.5 focus-within:border-primary-light focus-within:shadow-md hover:-translate-y-0.5 hover:border-primary-light hover:shadow-md sm:flex-row ${
+                id ? "cursor-pointer" : "cursor-default"
+            }`}
+            role={id ? "link" : undefined}
+            tabIndex={id ? 0 : -1}
+            onClick={handleCardClick}
+            onKeyDown={handleCardKeyDown}
+            aria-label={id ? `Open recipe: ${title || "Recipe"}` : undefined}
+        >
             <img
                 className="h-45 w-full shrink-0 rounded-sm object-cover sm:h-full sm:w-50"
                 src={optimizedImage}
@@ -53,19 +96,20 @@ export default function RecipeCard({ recipe = {}, showMatchInfo = true }) {
                 </div>
 
                 <div className="mt-auto flex shrink-0 flex-col items-center justify-center gap-3 sm:flex-row lg:mt-0 lg:flex-1 lg:justify-end">
-                    {id ? <FavoriteButton recipeId={id} /> : null}
                     {id ? (
-                        <Link
-                            to={`/recipe/${id}`}
-                            className="inline-flex items-center gap-2 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-semibold whitespace-nowrap text-white no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-primary-dark hover:bg-primary-dark hover:text-white"
-                        >
-                            View Recipe
-                        </Link>
-                    ) : (
-                        <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-semibold whitespace-nowrap text-text-muted">
-                            View Recipe
-                        </span>
-                    )}
+                        <div data-no-card-nav>
+                            <FavoriteButton recipeId={id} />
+                        </div>
+                    ) : null}
+                    <p className="m-0 inline-flex items-center gap-2 text-sm font-semibold whitespace-nowrap text-primary-dark transition-colors duration-200 group-focus-within:text-primary group-hover:text-primary">
+                        {id ? "Open recipe" : "Recipe unavailable"}
+                        <ChevronRight
+                            aria-hidden="true"
+                            size={20}
+                            strokeWidth={2.5}
+                            className="transition-transform duration-200 group-focus-within:translate-x-1 group-hover:translate-x-1"
+                        />
+                    </p>
                 </div>
             </div>
         </div>

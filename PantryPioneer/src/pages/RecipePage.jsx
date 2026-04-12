@@ -1,14 +1,26 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { getRecipeInformation } from "../api/themealdb.js";
 import Placeholder from "../assets/images/placeholder.webp";
+import Breadcrumbs from "../components/common/Breadcrumbs.jsx";
 import FavoriteButton from "../components/recipe/FavoriteButton.jsx";
 
 export default function RecipePage() {
     const { id } = useParams();
+    const location = useLocation();
     const [recipe, setRecipe] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+
+    const backTarget =
+        typeof location.state?.from === "string" &&
+        location.state.from.startsWith("/")
+            ? location.state.from
+            : "/search";
+
+    const backLabel = backTarget.startsWith("/search")
+        ? "Search results"
+        : "Previous page";
 
     useEffect(() => {
         if (!id) return;
@@ -120,6 +132,12 @@ export default function RecipePage() {
 
     return (
         <div className="mx-auto mb-16 flex w-full max-w-(--max-width) animate-[fadeInUp_0.4s_ease-out_both] flex-wrap gap-8 p-4 sm:p-8">
+            <Breadcrumbs
+                backTarget={backTarget}
+                backLabel={backLabel}
+                currentLabel={recipe.title}
+            />
+
             <div className="flex w-full flex-col items-center justify-center gap-4 pt-4 text-center text-text-main">
                 <h1 className="m-0 w-full font-display text-[clamp(2rem,4vw,3rem)] leading-tight text-text-main">
                     {recipe.title}
