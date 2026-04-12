@@ -61,14 +61,14 @@ export default function Header() {
                         {!user ? (
                             <NavLink
                                 to="/login"
-                                aria-label="Log in"
+                                aria-label="Log in | Register"
                                 className={({ isActive }) =>
                                     `nav-link${isActive ? " is-active" : ""}`
                                 }
                             >
                                 <LogIn className="nav-icon" />
                                 <span className="hidden-tablet-down">
-                                    Log in
+                                    Log in | Register
                                 </span>
                             </NavLink>
                         ) : (
